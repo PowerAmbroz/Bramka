@@ -1,4 +1,6 @@
-$("#div2").hide();
-$("#dodawanie_studenta").on("click", function(){
-  $("#div2").toggle();
+$(document).ready(function (){
+  $("#div2").hide();
+  $("#dodawanie_studenta").on("click", function(){
+    $("#div2").toggle();
+  });
 });
