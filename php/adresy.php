@@ -22,12 +22,10 @@
 ?>
 
 <body onbeforeunload="return myFunction()">
-	<br />
-	<button id="preview">Dodaj Studenta</button>
-	<button id="preview">Dodaj Studentow</button>
+	<button id="dodaj_studenta">Dodaj Studenta</button>
+	<button id="dodaj_studentow">Dodaj Studentow</button>
 	<!--<button id="preview2">Dodaj Studenta z Pliku</button>-->
 	<div id="div2">
-
 		<form action="../connects/insert_to_db.php" method="post">
 			Imię  <input type="text" name="imie"  id="imie"/><br />
 			Nazwisko <input type="text" name="nazwisko" id="nazwisko" ><br />
@@ -54,6 +52,7 @@
 			<input type="submit" name="Pzreślij" value="Prześlij" style="margin-left:150px;" />
 		</form>
 	</div>
+
 	<br />
 	<br />
 	<br />
@@ -76,8 +75,6 @@
 		}
 	</script>
 
-	<script type="text/javascript" src="../scripts/dodawanie_studenta.js"></script>
-	<script type="text/javascript" src="../scripts/dodawanie_studenta_z_pliku.js"></script>
 <?php
   include_once('../view/footer.php');
 ?>

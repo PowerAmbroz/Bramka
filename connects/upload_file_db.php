@@ -18,18 +18,18 @@ session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja je
   		$telefon = $filesop[3];
 
   		$sql = mysql_query("INSERT INTO kontakty (ID_Wykladowcy, Imie, Nazwisko, Grupa, Telefon) VALUES ('{$_SESSION['id']}','$imie','$nazwisko','$grupa','$telefon')");
+      $c++;
   	}
-
   		if($sql){
-  			echo "You database has imported successfully";
+  			echo "You database has imported successfully with ".$c." records.";
   		}else{
-  			echo "Sorry! There is some problem.";
+  			echo "Sorry! There is some problem in ".$c." record.";
   		}
   }
 
 
-		$_SESSION['zalkont']=true;
-header('Location: ../php/adresy.php');
+	$_SESSION['zalkont'] = true;
+  header('Location: ../php/adresy.php');
 
-mysqli_close($connection);
+  mysqli_close($connection);
 ?>

@@ -1,6 +1,4 @@
-$(function schowana(){
-    $("#div2").hide();
-    $("#preview").on("click", function(){
-        $("#div2").toggle();
-    });
+$("#div2").hide();
+$("#dodawanie_studenta").on("click", function(){
+  $("#div2").toggle();
 });
