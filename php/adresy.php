@@ -22,8 +22,8 @@
 ?>
 
 <body onbeforeunload="return myFunction()">
-	<button id="dodaj_studenta">Dodaj Studenta</button>
-	<button id="dodaj_studentow">Dodaj Studentow</button>
+	<button id="dodawanie_studenta">Dodaj Studenta</button>
+	<button id="dodawanie_studentow">Dodaj Studentow</button>
 	<!--<button id="preview2">Dodaj Studenta z Pliku</button>-->
 	<div id="div2">
 		<form action="../connects/insert_to_db.php" method="post">
@@ -49,7 +49,7 @@
 		<br />
 		<form action="../connects/upload_file_db.php" metod='post' enctype="multipart/form-data">
 			<input id="file" type="file" name="file" value="Prześlij Plik" /><br />
-			<input type="submit" name="Pzreślij" value="Prześlij" style="margin-left:150px;" />
+			<input type="submit" name="Prześlij" value="Prześlij" style="margin-left:150px;" />
 		</form>
 	</div>
 

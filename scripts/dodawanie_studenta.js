@@ -1,5 +1,3 @@
-$(document).ready(function (){
-  $("#dodaj_studenta").click(function() {
-    $("#div2").toggle();
-  });
-});
+function dodawanie_studenta() {
+  $("#div2").toggle();
+}
