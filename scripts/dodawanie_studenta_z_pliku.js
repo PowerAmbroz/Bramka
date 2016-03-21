@@ -1,6 +1,6 @@
 $(document).ready(function (){
-  $("#div3").hide();
-  $("#dodawanie_studentow").on("click", function(){
+  $('#dodaj_studentow').style('display', 'none');
+  $("#dodaj_studentow").click(function() {
     $("#div3").toggle();
   });
 });
