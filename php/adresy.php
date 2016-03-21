@@ -24,6 +24,7 @@
 <body onbeforeunload="return myFunction()">
 	<br />
 	<button id="preview">Dodaj Studenta</button>
+	<button id="preview">Dodaj Studentow</button>
 	<!--<button id="preview2">Dodaj Studenta z Pliku</button>-->
 	<div id="div2">
 
@@ -33,22 +34,26 @@
 			Grupa <input type="text" name="grupa" id="grupa"><br />
 			Nr. Tel. <input type="tel" name="nr_tel" id="tel" maxlength="9"/><br />
 			ID Wykładowcy <input type="text" name="ID" id="ID_wyk" value="<?php echo $_SESSION['id']; ?>" readonly>
-			<input type="submit" value="Dodaj" style="margin-left:9px;"/>
-			<br /><br />
-			Dodaj Studenta z Pliku
-			<br />
-			<form action="../connects/upload_file_db.php" metod='post' enctype="multipart/form-data">
-				<input id="file" type="file" name="file" value="Prześlij Plik" /><br />
-				<input type="submit" name="submit" value="Prześlij" style="margin-left:150px;" />
+			<input type="submit" name="Dodaj" value="Dodaj" style="margin-left:9px;"/>
 		</form>
+		<?php
+		if (isset($_SESSION['zle_dane'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+		{
+		echo $_SESSION['zle_dane'];
+		}
+		?>
+		<br /><br />
 	</div>
 
-	<!--<div id="div3">
-		<form action="../connects/upload_file_db.php" metod='post'>
-			<input id="FileToUpload" type="file" name="FileToUpload" value="Prześlij Plik" />
-			<input type="submit" name="submit" value="Prześlij" />
+	<div id="div3">
+		Dodaj Studenta z Pliku<br />
+		<p>Format: Imię;Nazwisko;Grupa;Telefon</p>
+		<br />
+		<form action="../connects/upload_file_db.php" metod='post' enctype="multipart/form-data">
+			<input id="file" type="file" name="file" value="Prześlij Plik" /><br />
+			<input type="submit" name="Pzreślij" value="Prześlij" style="margin-left:150px;" />
 		</form>
-	</div>-->
+	</div>
 	<br />
 	<br />
 	<br />
@@ -70,8 +75,9 @@
     	<?php $_SESSION['zalkont']=false; ?>
 		}
 	</script>
-	<script type="text/javascript" src="../scripts/dodawanie_studenta.js"></script>
 
+	<script type="text/javascript" src="../scripts/dodawanie_studenta.js"></script>
+	<script type="text/javascript" src="../scripts/dodawanie_studenta_z_pliku.js"></script>
 <?php
   include_once('../view/footer.php');
 ?>

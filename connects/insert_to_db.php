@@ -3,7 +3,8 @@ session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja je
 
   $connection = mysqli_connect("localhost","root","","test") or die("Error " . mysqli_error($connection));
 //  mysqli_select_db("test", $connection);
-
+if(isset($_POST['imie'])&&isset($_POST['nazwisko'])&&isset($_POST['grupa'])&&isset($_POST['nr_tel']))
+{
 $imie=$_POST['imie'];
 $nazwisko=$_POST['nazwisko'];
 $grupa=$_POST['grupa'];
@@ -17,4 +18,8 @@ $result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_
 header('Location: ../php/adresy.php');
 
 mysqli_close($connection);
+}
+else {
+  $_SESSION['zle_dane']='<span style="color:red">Nie wprowadzono wszystkich danych!</span>'
+}
 ?>

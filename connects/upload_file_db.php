@@ -2,27 +2,30 @@
 session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja jest to globalny pojemnik na dane
 
   $connection = mysqli_connect("localhost","root","","test") or die("Error " . mysqli_error($connection));
-//  mysqli_select_db("test", $connection);
-
-/*$imie=$_POST['imie'];
-$nazwisko=$_POST['nazwisko'];
-$grupa=$_POST['grupa'];
-$tel=$_POST['nr_tel'];
-
-//fetch table rows from mysql db
-$sql = "INSERT INTO studenci (Imie, Nazwisko, Grupa, Telefon) VALUES('$imie','$nazwisko','$grupa','$tel')";
-$result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));
-
-echo "doddano 1 rekord";*/
 
 
 
+  if(isset($_POST["Prześlij"]))
+  {
+  	$file = $_FILES['file']['tmp_name'];
+  	$handle = fopen($file, "r");
+  	$c = 0;
+  	while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
+  	{
+  		$imie = $filesop[0];
+  		$nazwisko = $filesop[1];
+      $grupa = $filesop[2];
+  		$telefon = $filesop[3];
 
+  		$sql = mysql_query("INSERT INTO kontakty (ID_Wykladowcy, Imie, Nazwisko, Grupa, Telefon) VALUES ('{$_SESSION['id']}','$imie','$nazwisko','$grupa','$telefon')");
+  	}
 
-
-
-
-
+  		if($sql){
+  			echo "You database has imported successfully";
+  		}else{
+  			echo "Sorry! There is some problem.";
+  		}
+  }
 
 
 		$_SESSION['zalkont']=true;
