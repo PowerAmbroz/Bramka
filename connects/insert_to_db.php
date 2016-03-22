@@ -5,7 +5,7 @@ session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja je
 //  mysqli_select_db("test", $connection);
 if(empty($_POST['imie'])&&empty($_POST['nazwisko'])&&empty($_POST['grupa'])&&empty($_POST['nr_tel']))
 {
-  $_SESSION['zle_dane']='<span style="color:red">Nie wprowadzono wszystkich danych!</span>';
+  $_SESSION['zle_dane']='<span style="color:red"><p>Wszystkie Pola Są Wymagane</p></span>';
   $_SESSION['zalkont']=true;
     header('Location: ../php/adresy.php');
 }
