@@ -22,6 +22,11 @@
   fclose($fp);
 
 
+  $content = json_decode(file_get_contents('../dane/dane.json'), true);
+  $newContent = json_encode(array('data' => $content), JSON_PRETTY_PRINT);
+  file_put_contents('../dane/dane.json', $newContent);
+
+/*
 //dopisywanie danych na poczatku
 $fotwarcie= fopen('../dane/dane.json','r');
 
@@ -50,7 +55,7 @@ $plik=fopen('../dane/dane.json','a');
 $zawartosc='}';
 fwrite($plik,$zawartosc);
 fclose($plik);
-
+*/
   //close the db connection
   mysqli_close($connection);
 ?>

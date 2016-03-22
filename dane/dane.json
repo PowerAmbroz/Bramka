@@ -1,1 +1,16 @@
-{"data" : [{"Imie":"Adam","Nazwisko":"Marzec","Grupa":"123","Telefon":"111111111"},{"Imie":"Pawe\u0142","Nazwisko":"Rysiu","Grupa":"122","Telefon":"222222222"},{"Imie":"Dawid","Nazwisko":"Walaszkowski","Grupa":"125NCI","Telefon":"888888888"},{"Imie":"Julia","Nazwisko":"Tymoszenko","Grupa":"45NC","Telefon":"444444444"},{"Imie":"Hania","Nazwisko":"Orange","Grupa":"99NC","Telefon":"234536545"}]}
+{
+    "data": [
+        {
+            "Imie": "zzz",
+            "Nazwisko": "zzz",
+            "Grupa": "123",
+            "Telefon": "111111111"
+        },
+        {
+            "Imie": "aaa",
+            "Nazwisko": "aaa",
+            "Grupa": "111",
+            "Telefon": "222222222"
+        }
+    ]
+}

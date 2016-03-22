@@ -34,22 +34,20 @@
 			ID Wykładowcy <input type="text" name="ID" id="ID_wyk" value="<?php echo $_SESSION['id']; ?>" readonly>
 			<input type="submit" name="Dodaj" value="Dodaj" style="margin-left:9px;"/>
 		</form>
-		<?php
+	</div>
+<?php
 		if (isset($_SESSION['zle_dane'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
 		{
-		echo $_SESSION['zle_dane'];
+				echo $_SESSION['zle_dane'];
 		}
-		?>
-		<br /><br />
-	</div>
-
+	?>
 	<div id="div3">
 		Dodaj Studenta z Pliku<br />
 		<p>Format: Imię;Nazwisko;Grupa;Telefon</p>
 		<br />
-		<form action="../connects/upload_file_db.php" metod='post' enctype="multipart/form-data">
+		<form action="../connects/upload_file_db.php" enctype="multipart/form-data" method='post'>
 			<input id="file" type="file" name="file" value="Prześlij Plik" /><br />
-			<input type="submit" name="Prześlij" value="Prześlij" style="margin-left:150px;" />
+			<input type="submit" name="send" value="Prześlij" style="margin-left:150px;" />
 		</form>
 	</div>
 

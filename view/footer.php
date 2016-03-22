@@ -4,6 +4,8 @@
     <?php include_once('customJS.php'); ?>
     <script>
       $(document).ready(function() {
+        $('#div2').hide();
+        $('#div3').hide();
         $('#dodawanie_studenta').click(function() {
           $('#div3').slideUp();
           $('#div2').toggle();

@@ -1,3 +1,3 @@
 function dodawanie_studenta() {
-  $("#div2").toggle();
+    $("#div2").toggle();
 }

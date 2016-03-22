@@ -3,23 +3,26 @@ session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja je
 
   $connection = mysqli_connect("localhost","root","","test") or die("Error " . mysqli_error($connection));
 //  mysqli_select_db("test", $connection);
-if(isset($_POST['imie'])&&isset($_POST['nazwisko'])&&isset($_POST['grupa'])&&isset($_POST['nr_tel']))
+if(empty($_POST['imie'])&&empty($_POST['nazwisko'])&&empty($_POST['grupa'])&&empty($_POST['nr_tel']))
 {
-$imie=$_POST['imie'];
-$nazwisko=$_POST['nazwisko'];
-$grupa=$_POST['grupa'];
-$tel=$_POST['nr_tel'];
-
-//fetch table rows from mysql db
-$sql = "INSERT INTO kontakty (ID_Wykladowcy, Imie, Nazwisko, Grupa, Telefon) VALUES('{$_SESSION['id']}','$imie','$nazwisko','$grupa','$tel')";
-$result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));
-
-		$_SESSION['zalkont']=true;
-header('Location: ../php/adresy.php');
-
-mysqli_close($connection);
+  $_SESSION['zle_dane']='<span style="color:red">Nie wprowadzono wszystkich danych!</span>';
+  $_SESSION['zalkont']=true;
+    header('Location: ../php/adresy.php');
 }
 else {
-  $_SESSION['zle_dane']='<span style="color:red">Nie wprowadzono wszystkich danych!</span>'
+  unset($_SESSION['zle_dane']);
+    $imie=$_POST['imie'];
+    $nazwisko=$_POST['nazwisko'];
+    $grupa=$_POST['grupa'];
+    $tel=$_POST['nr_tel'];
+
+  //fetch table rows from mysql db
+    $sql = "INSERT INTO kontakty (ID_Wykladowcy, Imie, Nazwisko, Grupa, Telefon) VALUES('{$_SESSION['id']}','$imie','$nazwisko','$grupa','$tel')";
+    $result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));
+
+  		$_SESSION['zalkont']=true;
+        header('Location: ../php/adresy.php');
+
+  mysqli_close($connection);
 }
 ?>
