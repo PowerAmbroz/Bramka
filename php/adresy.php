@@ -22,33 +22,45 @@
 ?>
 
 <body onbeforeunload="return myFunction()">
-	<br />
-	<button id="preview">Dodaj Studenta</button>
+	<button id="dodawanie_studenta">Dodaj Studenta</button>
+	<button id="dodawanie_studentow">Dodaj Studentow</button>
 	<!--<button id="preview2">Dodaj Studenta z Pliku</button>-->
 	<div id="div2">
-
 		<form action="../connects/insert_to_db.php" method="post">
 			Imię  <input type="text" name="imie"  id="imie"/><br />
 			Nazwisko <input type="text" name="nazwisko" id="nazwisko" ><br />
 			Grupa <input type="text" name="grupa" id="grupa"><br />
 			Nr. Tel. <input type="tel" name="nr_tel" id="tel" maxlength="9"/><br />
 			ID Wykładowcy <input type="text" name="ID" id="ID_wyk" value="<?php echo $_SESSION['id']; ?>" readonly>
-			<input type="submit" value="Dodaj" style="margin-left:9px;"/>
-			<br /><br />
-			Dodaj Studenta z Pliku
-			<br />
-			<form action="../connects/upload_file_db.php" metod='post' enctype="multipart/form-data">
-				<input id="file" type="file" name="file" value="Prześlij Plik" /><br />
-				<input type="submit" name="submit" value="Prześlij" style="margin-left:150px;" />
+			<input type="submit" name="Dodaj" value="Dodaj" style="margin-left:9px;"/>
 		</form>
 	</div>
-
-	<!--<div id="div3">
-		<form action="../connects/upload_file_db.php" metod='post'>
-			<input id="FileToUpload" type="file" name="FileToUpload" value="Prześlij Plik" />
-			<input type="submit" name="submit" value="Prześlij" />
+<?php
+		if (isset($_SESSION['zle_dane'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+		{
+				echo $_SESSION['zle_dane'];
+		}
+	?>
+	<div id="div3">
+		Dodaj Studenta z Pliku<br />
+		<p>Format: Imię;Nazwisko;Grupa;Telefon</p>
+		<br />
+		<form action="../connects/upload_file_db.php" enctype="multipart/form-data" method='post'>
+			<input id="file" type="file" name="file" value="Prześlij Plik" /><br />
+			<input type="submit" name="send" value="Prześlij" style="margin-left:150px;" />
 		</form>
-	</div>-->
+	</div>
+	<?php
+			if (isset($_SESSION['rezultat_wgrania_pliku'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+			{
+					echo $_SESSION['rezultat_wgrania_pliku'];
+			}
+
+			if (isset($_SESSION['zly_format_pliku'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+			{
+					echo $_SESSION['zly_format_pliku'];
+			}
+		?>
 	<br />
 	<br />
 	<br />
@@ -66,11 +78,16 @@
 
 
 	<script>
-		function myFunction() {
-    	<?php $_SESSION['zalkont']=false; ?>
+		function myFunction()
+		{
+    	<?php 
+					$_SESSION['zalkont']=false;
+					unset($_SESSION['rezultat_wgrania_pliku']);
+					unset($_SESSION['zly_format_pliku']);
+					unset($_SESSION['zle_dane']);
+			?>
 		}
 	</script>
-	<script type="text/javascript" src="../scripts/dodawanie_studenta.js"></script>
 
 <?php
   include_once('../view/footer.php');

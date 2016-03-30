@@ -108,3 +108,8 @@ float:right;
 {
   width: 25px;
 }
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
