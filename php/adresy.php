@@ -50,7 +50,17 @@
 			<input type="submit" name="send" value="Prześlij" style="margin-left:150px;" />
 		</form>
 	</div>
+	<?php
+			if (isset($_SESSION['rezultat_wgrania_pliku'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+			{
+					echo $_SESSION['rezultat_wgrania_pliku'];
+			}
 
+			if (isset($_SESSION['zly_format_pliku'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+			{
+					echo $_SESSION['zly_format_pliku'];
+			}
+		?>
 	<br />
 	<br />
 	<br />
@@ -68,8 +78,14 @@
 
 
 	<script>
-		function myFunction() {
-    	<?php $_SESSION['zalkont']=false; ?>
+		function myFunction()
+		{
+    	<?php 
+					$_SESSION['zalkont']=false;
+					unset($_SESSION['rezultat_wgrania_pliku']);
+					unset($_SESSION['zly_format_pliku']);
+					unset($_SESSION['zle_dane']);
+			?>
 		}
 	</script>
 

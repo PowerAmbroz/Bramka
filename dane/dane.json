@@ -47,6 +47,36 @@
             "Nazwisko": "sss",
             "Grupa": "sss",
             "Telefon": "666778980"
+        },
+        {
+            "Imie": "Jacek",
+            "Nazwisko": "Placek",
+            "Grupa": "123NCI",
+            "Telefon": "666999888"
+        },
+        {
+            "Imie": "eee",
+            "Nazwisko": "eee",
+            "Grupa": "eee",
+            "Telefon": "445544333"
+        },
+        {
+            "Imie": "sbs",
+            "Nazwisko": "sss",
+            "Grupa": "sss",
+            "Telefon": "666778980"
+        },
+        {
+            "Imie": "Mariusz",
+            "Nazwisko": "Rogalek",
+            "Grupa": "123NCI",
+            "Telefon": "123456789"
+        },
+        {
+            "Imie": "Simi",
+            "Nazwisko": "Relot",
+            "Grupa": "67",
+            "Telefon": "777888777"
         }
     ]
 }
