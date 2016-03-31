@@ -77,6 +77,12 @@
             "Nazwisko": "Relot",
             "Grupa": "67",
             "Telefon": "777888777"
+        },
+        {
+            "Imie": "Andrzej",
+            "Nazwisko": "Gural",
+            "Grupa": "123NCI",
+            "Telefon": "444444444"
         }
     ]
 }
