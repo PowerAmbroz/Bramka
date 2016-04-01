@@ -1,88 +1,34 @@
 {
     "data": [
         {
-            "Imie": "zzz",
-            "Nazwisko": "zzz",
-            "Grupa": "123",
-            "Telefon": "111111111"
+            "Imie": "Pawe\u0142",
+            "Nazwisko": "Anders",
+            "Grupa": "115NCI",
+            "Telefon": "999111888"
         },
         {
-            "Imie": "aaa",
-            "Nazwisko": "aaa",
-            "Grupa": "111",
-            "Telefon": "222222222"
+            "Imie": "",
+            "Nazwisko": "",
+            "Grupa": "",
+            "Telefon": "0"
         },
         {
-            "Imie": "ooo",
-            "Nazwisko": "ooo",
-            "Grupa": "ooo",
-            "Telefon": "656565"
+            "Imie": "a",
+            "Nazwisko": "",
+            "Grupa": "",
+            "Telefon": "0"
         },
         {
             "Imie": "bbb",
             "Nazwisko": "bbb",
-            "Grupa": "bbb",
-            "Telefon": "123234525"
+            "Grupa": "111",
+            "Telefon": "111222333"
         },
         {
-            "Imie": "qqq",
-            "Nazwisko": "qqq",
-            "Grupa": "qqq",
-            "Telefon": "445544333"
-        },
-        {
-            "Imie": "sss",
-            "Nazwisko": "sss",
-            "Grupa": "sss",
-            "Telefon": "445544333"
-        },
-        {
-            "Imie": "eee",
-            "Nazwisko": "eee",
-            "Grupa": "eee",
-            "Telefon": "445544333"
-        },
-        {
-            "Imie": "sbs",
-            "Nazwisko": "sss",
-            "Grupa": "sss",
-            "Telefon": "666778980"
-        },
-        {
-            "Imie": "Jacek",
-            "Nazwisko": "Placek",
-            "Grupa": "123NCI",
-            "Telefon": "666999888"
-        },
-        {
-            "Imie": "eee",
-            "Nazwisko": "eee",
-            "Grupa": "eee",
-            "Telefon": "445544333"
-        },
-        {
-            "Imie": "sbs",
-            "Nazwisko": "sss",
-            "Grupa": "sss",
-            "Telefon": "666778980"
-        },
-        {
-            "Imie": "Mariusz",
-            "Nazwisko": "Rogalek",
-            "Grupa": "123NCI",
-            "Telefon": "123456789"
-        },
-        {
-            "Imie": "Simi",
-            "Nazwisko": "Relot",
-            "Grupa": "67",
-            "Telefon": "777888777"
-        },
-        {
-            "Imie": "Andrzej",
-            "Nazwisko": "Gural",
-            "Grupa": "123NCI",
-            "Telefon": "444444444"
+            "Imie": "aa",
+            "Nazwisko": "aaa",
+            "Grupa": "aaa",
+            "Telefon": "222222222"
         }
     ]
 }

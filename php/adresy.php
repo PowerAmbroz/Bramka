@@ -68,10 +68,11 @@
 	<table id="example" class="display select" width="100%" cellspacing="0">
 		 <thead>
 				<tr>
-					 <th>Imie</th>
-					 <th>Nazwisko</th>
-					 <th>Grupa</th>
-					 <th>Telefon</th>
+						<!--<th><input type="checkbox"></th>-->
+					 	<th>Imie</th>
+					 	<th>Nazwisko</th>
+					 	<th>Grupa</th>
+					 	<th>Telefon</th>
 				</tr>
 		 </thead>
 	</table>
@@ -80,7 +81,7 @@
 	<script>
 		function myFunction()
 		{
-    	<?php 
+    	<?php
 					$_SESSION['zalkont']=false;
 					unset($_SESSION['rezultat_wgrania_pliku']);
 					unset($_SESSION['zly_format_pliku']);
