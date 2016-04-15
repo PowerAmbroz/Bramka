@@ -5,16 +5,16 @@
   $connection = mysqli_connect("localhost","root","","test") or die("Error " . mysqli_error($connection));
 
   //fetch table rows from mysql db
-  $sql = "SELECT `Imie`,`Nazwisko`, `Grupa`, `Telefon` FROM `kontakty` WHERE ID_Wykladowcy= '{$_SESSION['id']}'";
+  $sql = "SELECT `ID_kontakt`,`Imie`,`Nazwisko`, `Grupa`, `Telefon` FROM `kontakty` WHERE ID_Wykladowcy= '{$_SESSION['id']}'";
   $result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));
 
   //create an array
   $emparray = array();
   while($row =mysqli_fetch_assoc($result))
   {
-    $emparray[] = $row;
+    $emparray[] = (array_values($row));
   }
-  //echo json_encode($emparray);
+   //json_encode($emparray);
 
   //write to json file
   $fp = fopen('../dane/dane.json', 'w');

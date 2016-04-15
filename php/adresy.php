@@ -65,11 +65,12 @@
 	<br />
 	<br />
 
-	<table id="example" class="display select" width="100%" cellspacing="0">
+	<table id="example" class="display select" cellspacing="0" width="100%">
 		 <thead>
 				<tr>
 						<!--<th><input type="checkbox"></th>-->
-					 	<th>Imie</th>
+						<th><input name="select_all" value="1" id="example-select-all" type="checkbox"></th>
+						<th>Imie</th>
 					 	<th>Nazwisko</th>
 					 	<th>Grupa</th>
 					 	<th>Telefon</th>
@@ -91,5 +92,6 @@
 	</script>
 
 <?php
+
   include_once('../view/footer.php');
 ?>
