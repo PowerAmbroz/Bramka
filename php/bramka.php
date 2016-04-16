@@ -44,7 +44,7 @@ echo "<p>Witaj ".$_SESSION['user'].'! [<a href="logout.php">Wyloguj się!</a>]</
 	<div id="lewy">
 	<div id="charNum">160</div>
 
-<form action="testSerial.php" method="post">
+<form action="sms.php" method="post">
 	<input type="text" id="numer" name="numer"/>
 	<textarea type="text" name="wiadomosc" id="wiadomosc" onkeyup="countChar(this)" maxlength="160"></textarea><br />
   <input type="submit" value="Wyslij" name="wyslij" id="wyslij">
