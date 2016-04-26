@@ -47,16 +47,6 @@
 						ID Wykładowcy <input type="text" name="ID" id="ID_wyk" value="<?php echo $_SESSION['id']; ?>" readonly>
 						<input type="submit" name="Dodaj" value="Dodaj" style="margin-left:9px;"/>
 					</form>
-					<script>
-						$('#dodajStudenta').on('submit', function(e) {
-							e.preventDefault();
-							$('#dodajStudenta').ajaxForm({
-								url: '../connects/insert_to_db.php',
-								type: 'post'
-							});
-							updateDataTable();
-						});
-					</script>
 				</div>
 			<?php
 					if (isset($_SESSION['zle_dane'])) //sprawdza czy zmienna błąd jest ustawiona w sesji

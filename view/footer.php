@@ -20,5 +20,15 @@
         });
       });
     </script>
+    <script>
+      $('#dodajStudenta').on('submit', function(e) {
+        e.preventDefault();
+        $('#dodajStudenta').ajaxForm({
+          url: '../connects/insert_to_db.php',
+          type: 'post'
+        });
+        updateDataTable();
+      });
+    </script>
   </body>
 </html>
