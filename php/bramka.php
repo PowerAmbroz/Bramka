@@ -152,15 +152,7 @@
 	?>
 	</div>
 
+	<?php
 
-
-
-
-	<script src="http://code.jquery.com/jquery-1.5.js"></script>
-	<script type="text/javascript" src="../scripts/liczenie_znaki.js"></script>
-	<script type="text/javascript" src="../scripts/otwieranie_okna.js"></script>
-
-
-</body>
-
-</html>
+	  include_once('../view/footer.php');
+	?>

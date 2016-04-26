@@ -77,7 +77,6 @@
 				</tr>
 		 </thead>
 	</table>
-	fajna kurde zabawa
 	<hr>
 
 	<p>Press <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p>
