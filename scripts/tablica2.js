@@ -53,6 +53,15 @@ $(document).ready(function() {
      order: [[1, 'asc']]
   });
 
+  $('#dodajStudenta').on('submit', function(e) {
+    e.preventDefault();
+    $('#dodajStudenta').ajaxForm({
+      url: '../connects/insert_to_db.php',
+      type: 'post'
+    });
+    table.ajax.reload();
+  });
+
   // Handle row selection event
   $('#example').on('select.dt deselect.dt', function(e, api, type, items) {
      if (e.type === 'select') {
