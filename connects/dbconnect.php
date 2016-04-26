@@ -9,7 +9,7 @@
     $sql = "SELECT `ID_kontakt`,`Imie`,`Nazwisko`, `Grupa`, `Telefon` FROM `kontakty` WHERE ID_Wykladowcy= '{$_SESSION['id']}'";
   }
   if(isset($_GET['wykladowca_id'])) {
-    $sql = "SELECT `ID_kontakt`,`Imie`,`Nazwisko`, `Grupa`, `Telefon` FROM `kontakty` WHERE ID_Wykladowcy= '".$_GET['wykladowca_id']."'";
+    $sql = "SELECT `ID_kontakt`,`Imie`,`Nazwisko`, `Grupa`, `Telefon` FROM `kontakty` WHERE ID_Wykladowcy= '{$_GET['wykladowca_id']}'";
   }
   if(!isset($_GET['wykladowca_id']) && !isset($_SESSION['id'])) {
     $sql = "SELECT `ID_kontakt`,`Imie`,`Nazwisko`, `Grupa`, `Telefon` FROM `kontakty` WHERE ID_Wykladowcy= '-1'";
@@ -23,7 +23,7 @@
   {
     $emparray[] = (array_values($row));
   }
-   //json_encode($emparray);
+
 
   //write to json file
   $fp = fopen('../dane/dane.json', 'w');

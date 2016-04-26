@@ -5,6 +5,9 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
     <script type="text/javascript" src="../scripts/liczenie_znaki.js"></script>
   	<script type="text/javascript" src="../scripts/otwieranie_okna.js"></script>
+    <script>
+      var wykladowca_id = '<?php echo $_SESSION['id']?>';
+    </script>
     <script type="text/javascript" src="../scripts/tablica2.js"></script>
     <?php include_once('customJS.php'); ?>
     <script>
