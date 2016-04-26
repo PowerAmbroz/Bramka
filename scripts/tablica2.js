@@ -92,7 +92,7 @@ $(document).ready(function() {
       var form = this;
 
       // Iterate over all selected checkboxes
-           table.rows({ selected: true }).every(function(index){
+           $table.rows({ selected: true }).every(function(index){
               // Get row ID
               var rowId = this.data()[0];
 
