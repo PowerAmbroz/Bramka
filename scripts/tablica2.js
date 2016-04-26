@@ -92,16 +92,16 @@ $(document).ready(function() {
       var form = this;
 
       // Iterate over all selected checkboxes
-      table.rows({ selected: true }).every(function(numer){
-         // Get row ID
-         var Idrow = this.data()[];
+           table.rows({ selected: true }).every(function(index){
+              // Get row ID
+              var rowId = this.data()[0];
 
-         // Create a hidden element
-         $(form).append(
-             $('<input>')
-                .attr('type', 'hidden')
-                .attr('name', 'id[]')
-                .val(Idrow)
+              // Create a hidden element
+              $(form).append(
+                  $('<input>')
+                     .attr('type', 'hidden')
+                     .attr('name', 'id[]')
+                     .val(rowId)
          );
       });
 
