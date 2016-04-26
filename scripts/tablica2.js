@@ -89,12 +89,26 @@ $(document).ready(function() {
 
    // Handle form submission event
    $('#frm-example').on('submit', function(e){
+     e.preventDefault();
       var form = this;
+      var phoneNumberArray = [];
 
       // Iterate over all selected checkboxes
-      $("input:checked", table.fnGetNodes()).each(function() {
-        console.log($(this).val());
+      // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
+      $('#example input[type="checkbox"]:checked').each(function() {
+        var number = $(this).parent().parent().children('td:nth-child(5)').html();
+        number ? phoneNumberArray.push(number) : 0;
       });
+
+      var finalNumber = "";
+      for(var i = 0; i < phoneNumberArray.length; i++) {
+        finalNumber += phoneNumberArray[i] + ",";
+      }
+      if(finalNumber.substring(finalNumber.length-1) == ",") { //jesli na ostatnim miejscu jest przercinek
+        finalNumber = finalNumber.substring(0, finalNumber.length-1);//usuñ ostatnie miejsce, ostatni char
+      }
+      console.log(finalNumber);
+      // $('#numer').val(finalNumber);
 
 
     //  table.rows({ selected: true }).every(function(index){
@@ -114,14 +128,14 @@ $(document).ready(function() {
       // The code below is not needed in production
 
       // Output form data to a console
-      $('#example-console').text($(form).serialize());
-      console.log("Submitek", $(form).serialize());
-
-      // Remove added elements
-      $('input[name="placek\[\]"]', form).remove();
-
-      // Prevent actual form submission
-      e.preventDefault();
+      // $('#example-console').text($(form).serialize());
+      // console.log("Submitek", $(form).serialize());
+      //
+      // // Remove added elements
+      // $('input[name="placek\[\]"]', form).remove();
+      //
+      // // Prevent actual form submission
+      // e.preventDefault();
    });
 });
 //*/
