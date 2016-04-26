@@ -35,6 +35,7 @@ $(document).ready(function() {
   var table = $('#example').DataTable({
      ajax: '../dane/dane.json',
      select: true,
+lengthMenu: [[-1],["All"]],
      columnDefs: [
        {
          targets: 0,
@@ -50,7 +51,7 @@ $(document).ready(function() {
      select: {
         style: 'multi'
      },
-     order: [[1, 'asc']]
+          order: [[1, 'asc']]
   });
 
   $('#dodajStudenta').on('submit', function(e) {
@@ -125,9 +126,9 @@ $(document).ready(function() {
      if(finalNumber.substring(finalNumber.length-1) == ",") { //jesli na ostatnim miejscu jest przercinek
        finalNumber = finalNumber.substring(0, finalNumber.length-1);//usuñ ostatnie miejsce, ostatni char
      }
-     console.log(finalNumber);
+     //console.log(finalNumber);
      $('#numer').val(finalNumber);
-
+     zamknij_adresy();
 
    //  table.rows({ selected: true }).every(function(index){
    //     // Get row ID
