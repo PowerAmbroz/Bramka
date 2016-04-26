@@ -64,12 +64,12 @@
 	<br />
 	<br />
 	<br />
-
+<form id="frm-example" action="" method="POST">
 	<table id="example" class="display select" cellspacing="0" width="100%">
 		 <thead>
 				<tr>
-						<!--<th><input type="checkbox"></th>-->
-						<th><input name="select_all" value="1" id="example-select-all" type="checkbox"></th>
+						<th><input type="checkbox"></th>
+						<!--<th><input name="select_all" value="1" id="example-select-all" type="checkbox"></th>-->
 						<th>Imie</th>
 					 	<th>Nazwisko</th>
 					 	<th>Grupa</th>
@@ -77,7 +77,16 @@
 				</tr>
 		 </thead>
 	</table>
+	fajna kurde zabawa
+	<hr>
 
+	<p>Press <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p>
+
+	<p><button>Submit</button></p>
+
+	<b>Data submitted to the server:</b><br>
+	<pre id="example-console">
+	</form>
 
 	<script>
 		function myFunction()
