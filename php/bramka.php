@@ -26,7 +26,7 @@
 	<div id="adresymodal-bg" class="adresymodal-bg" style="display: none;">
     <div class="adresymodal-container">
       <div class="w-clearfix">
-        <div class="adresymodal-close">Zamknij</div>
+        <div class="adresymodal-close" onclick="zamknij_adresy()">Zamknij</div>
       </div>
       <div class="adresymodal-window"></div>
     </div>
@@ -44,7 +44,7 @@
 
 	<br />
 		<div id="upperbutton">
-			<button  id="adresy" onclick="funkcja_adresy()"></button>
+			<button  id="adresy" onclick="pokaz_adresy()"></button>
 		</div>
 		<!--<input type="text" id="kontakty" name="konatakty"/>-->
 
