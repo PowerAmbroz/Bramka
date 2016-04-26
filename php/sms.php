@@ -16,8 +16,31 @@ $wiadomosc = $_POST['wiadomosc']; //pobranie hasła
 echo $numer;
 echo $wiadomosc;
 
+
+
+$msgCenter = array();
+
+array_push($msgCenter, array("123123123", "msg nr 1"));
+array_push($msgCenter, array("456456456", "msg nr 2"));
+array_push($msgCenter, array("789789798", "msg nr 3"));
+
+fifomsgs($msgCenter);
+
+function fifomsgs(msg) {
+  if msgCenter.sizeof > 0 {
+    sendMessage(msg[0][0], msg[0][1]);
+    array_shift($msgCenter);
+    fifomsgs($msgCenter);
+  }
+}
+
+// [wiadomosc nr 1, wiadomosc nr 2]
+
+
+
+
     //*******************************************************************************
-    /*  include "php_serial.class.php";
+    /* include "php_serial.class.php";
 
 
 
@@ -60,7 +83,8 @@ echo $wiadomosc;
 
 
     //$serial->sendMessage(chr(13));
-  	$serial->sendMessage("at+cmgs=\"664861998\"");
+    $serial->sendMessage("at+cmgs=\"664861998\"");
+    $serial->sendMessage("at+cmgs=\"".$msgCenter[0][0]."\"");
 
 
     $serial->sendMessage(chr(13));
@@ -73,6 +97,7 @@ echo $wiadomosc;
 
     //sleep(1);
   	$serial->sendMessage("BlaBla");
+    $serial->sendMessage($msgCenter[0][1]);
 
   	$serial->sendMessage(chr(26));
   //$serial->sendMessage(\x1A);
