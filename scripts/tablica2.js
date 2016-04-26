@@ -59,7 +59,7 @@ $(document).ready(function() {
       url: '../connects/insert_to_db.php',
       type: 'post'
     });
-    console.log('DEFUQ!');
+    $('#dodajStudenta').ajaxSubmit();
     table.ajax.reload();
   });
 
