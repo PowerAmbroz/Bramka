@@ -144,7 +144,7 @@ td {
   display: -ms-flexbox;
   display: flex;
   width: 700px;
-  max-height: 90vh;
+  height: 90vh;
   padding: 25px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -161,6 +161,7 @@ td {
   padding: 3px 10px;
   float: right;
   border-bottom: 1px solid #000;
+  cursor: pointer;
 }
 
 .adresymodal-window {
