@@ -153,6 +153,7 @@ td {
   flex-direction: column;
   border-radius: 10px;
   background-color: #fff;
+  overflow: auto;
 }
 
 .adresymodal-close {
