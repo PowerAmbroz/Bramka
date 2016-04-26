@@ -60,7 +60,13 @@ $(document).ready(function() {
       type: 'post'
     });
     $('#dodajStudenta').ajaxSubmit();
-    table.ajax.reload();
+    $.ajax({
+      url: '../connects/dbconnect.php',
+      type: 'GET'
+    }).done(function() {
+      console.log('reloaded db...');
+      table.ajax.reload();
+    });
   });
 
   // Handle row selection event
