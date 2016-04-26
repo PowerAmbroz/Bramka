@@ -92,18 +92,23 @@ $(document).ready(function() {
       var form = this;
 
       // Iterate over all selected checkboxes
-           table.rows({ selected: true }).every(function(index){
-              // Get row ID
-              var rowId = this.data()[0];
-
-              // Create a hidden element
-              $(form).append(
-                  $('<input>')
-                     .attr('type', 'hidden')
-                     .attr('name', 'id[]')
-                     .val(rowId)
-         );
+      $("input:checked", table.fnGetNodes()).each(function() {
+        console.log($(this).val());
       });
+
+
+    //  table.rows({ selected: true }).every(function(index){
+    //     // Get row ID
+    //     var rowId = this.data()[0];
+     //
+    //     // Create a hidden element
+    //     $(form).append(
+    //         $('<input>')
+    //            .attr('type', 'hidden')
+    //            .attr('name', 'id[]')
+    //            .val(rowId)
+    //      );
+    //   });
 
       // FOR DEMONSTRATION ONLY
       // The code below is not needed in production
