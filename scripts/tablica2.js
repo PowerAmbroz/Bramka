@@ -60,11 +60,8 @@ $(document).ready(function() {
       type: 'post'
     });
     $('#dodajStudenta').ajaxSubmit();
-    $.ajax({
-      url: '../connects/dbconnect.php',
-      type: 'GET'
-    }).done(function() {
-      console.log('reloaded db...');
+    $.get('../connects/dbconnect.php', function(data) {
+      console.log('reloaded?');
       table.ajax.reload();
     });
   });
