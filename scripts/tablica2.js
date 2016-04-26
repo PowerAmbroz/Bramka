@@ -60,7 +60,7 @@ $(document).ready(function() {
       type: 'post'
     });
     $('#dodajStudenta').ajaxSubmit();
-    $.get('../connects/dbconnect.php', function(data) {
+    $.get('../connects/dbconnect.php?wykladowca_id=1', function(data) {
       console.log('reloaded?');
       table.ajax.reload();
     });
