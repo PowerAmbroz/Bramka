@@ -12,22 +12,20 @@ session_start();
 
 $numer = $_POST['numer']; //pobranie loginu wysłanego z indexu
 $wiadomosc = $_POST['wiadomosc']; //pobranie hasła
+$msgCenter = array();
 
 echo $numer;
 echo $wiadomosc;
 
-
-
-$msgCenter = array();
-
-array_push($msgCenter, array("123123123", "msg nr 1"));
-array_push($msgCenter, array("456456456", "msg nr 2"));
-array_push($msgCenter, array("789789798", "msg nr 3"));
+$numerArray = explode(",", $numer);
+for($i = 0; i < $numerArray.sizeof; i++) {
+  array_push($msgCenter, array($numerArray[i], $wiadomosc));
+}
 
 fifomsgs($msgCenter);
 
 function fifomsgs(msg) {
-  if msgCenter.sizeof > 0 {
+  if (msg.sizeof > 0) {
     sendMessage(msg[0][0], msg[0][1]);
     array_shift($msgCenter);
     fifomsgs($msgCenter);
