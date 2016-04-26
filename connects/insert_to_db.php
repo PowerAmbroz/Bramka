@@ -12,7 +12,7 @@ if(empty($_POST['imie'] && $_POST['nazwisko'] && $_POST['grupa'] && $_POST['nr_t
 {
   $_SESSION['zle_dane']='<span style="color:red"><p>Wszystkie Pola Są Wymagane</p></span>';
   $_SESSION['zalkont']=true;
-    header('Location: ../php/adresy.php');
+    //header('Location: ../php/adresy.php');
 }
 else {
   unset($_SESSION['zle_dane']);
@@ -26,7 +26,7 @@ else {
     $result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));
 
   		$_SESSION['zalkont']=true;
-        header('Location: ../php/adresy.php');
+        //header('Location: ../php/adresy.php');
 
   mysqli_close($connection);
 }
