@@ -30,113 +30,117 @@ function updateDataTableSelectAllCtrl(table) {
    }
 }
 
-$(document).ready(function() {
-   // Initialize the table
-   var table = $('#example').DataTable({
-      ajax: '../dane/dane.json',
-      select: true,
-      columnDefs: [
-      	{
-         	targets: 0,
-         	orderable: false,
-         	searchable: false,
-          width: '1%',
-         	className: 'dt-body-center',
-         	render: function(data, type, full, meta) {
-            	return '<input type="checkbox">';
-	         }
-   	   }
-      ],
-      select: {
-         style: 'multi'
-      },
-      order: [[1, 'asc']]
-   });
-
-   // Handle row selection event
-   $('#example').on('select.dt deselect.dt', function(e, api, type, items) {
-      if (e.type === 'select') {
-         $('tr.selected input[type="checkbox"]', api.table().container()).prop('checked', true);
-      } else {
-         $('tr:not(.selected) input[type="checkbox"]', api.table().container()).prop('checked', false);
+function updateDataTable() {
+  // Initialize the table
+  var table = $('#example').DataTable({
+     ajax: '../dane/dane.json',
+     select: true,
+     columnDefs: [
+       {
+         targets: 0,
+         orderable: false,
+         searchable: false,
+         width: '1%',
+         className: 'dt-body-center',
+         render: function(data, type, full, meta) {
+             return '<input type="checkbox">';
+          }
       }
+     ],
+     select: {
+        style: 'multi'
+     },
+     order: [[1, 'asc']]
+  });
 
-      // Update state of "Select all" control
-      updateDataTableSelectAllCtrl(table);
-   });
+  // Handle row selection event
+  $('#example').on('select.dt deselect.dt', function(e, api, type, items) {
+     if (e.type === 'select') {
+        $('tr.selected input[type="checkbox"]', api.table().container()).prop('checked', true);
+     } else {
+        $('tr:not(.selected) input[type="checkbox"]', api.table().container()).prop('checked', false);
+     }
 
-   // Handle click on "Select all" control
-   $('#example thead').on('click', 'input[type="checkbox"]', function(e) {
-      if (this.checked) {
-         table.rows({ page: 'current' }).select();
-      } else {
-         table.rows({ page: 'current' }).deselect();
-      }
+     // Update state of "Select all" control
+     updateDataTableSelectAllCtrl(table);
+  });
 
-      e.stopPropagation();
-   });
+  // Handle click on "Select all" control
+  $('#example thead').on('click', 'input[type="checkbox"]', function(e) {
+     if (this.checked) {
+        table.rows({ page: 'current' }).select();
+     } else {
+        table.rows({ page: 'current' }).deselect();
+     }
 
-   // Handle click on heading containing "Select all" control
-   $('thead', table.table().container()).on('click', 'th:first-child', function(e) {
-      $('input[type="checkbox"]', this).trigger('click');
-   });
+     e.stopPropagation();
+  });
 
-   // Handle table draw event
-   $('#example').on('draw.dt', function() {
-      // Update state of "Select all" control
-      updateDataTableSelectAllCtrl(table);
-   });
+  // Handle click on heading containing "Select all" control
+  $('thead', table.table().container()).on('click', 'th:first-child', function(e) {
+     $('input[type="checkbox"]', this).trigger('click');
+  });
 
-   // Handle form submission event
-   $('#frm-example').on('submit', function(e){
-     e.preventDefault();
-      var form = this;
-      var phoneNumberArray = [];
+  // Handle table draw event
+  $('#example').on('draw.dt', function() {
+     // Update state of "Select all" control
+     updateDataTableSelectAllCtrl(table);
+  });
 
-      // Iterate over all selected checkboxes
-      // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
-      $('#example input[type="checkbox"]:checked').each(function() {
-        var number = $(this).parent().parent().children('td:nth-child(5)').html();
-        number ? phoneNumberArray.push(number) : 0;
-      });
+  // Handle form submission event
+  $('#frm-example').on('submit', function(e){
+    e.preventDefault();
+     var form = this;
+     var phoneNumberArray = [];
 
-      var finalNumber = "";
-      for(var i = 0; i < phoneNumberArray.length; i++) {
-        finalNumber += phoneNumberArray[i] + ",";
-      }
-      if(finalNumber.substring(finalNumber.length-1) == ",") { //jesli na ostatnim miejscu jest przercinek
-        finalNumber = finalNumber.substring(0, finalNumber.length-1);//usuñ ostatnie miejsce, ostatni char
-      }
-      console.log(finalNumber);
-      // $('#numer').val(finalNumber);
+     // Iterate over all selected checkboxes
+     // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
+     $('#example input[type="checkbox"]:checked').each(function() {
+       var number = $(this).parent().parent().children('td:nth-child(5)').html();
+       number ? phoneNumberArray.push(number) : 0;
+     });
+
+     var finalNumber = "";
+     for(var i = 0; i < phoneNumberArray.length; i++) {
+       finalNumber += phoneNumberArray[i] + ",";
+     }
+     if(finalNumber.substring(finalNumber.length-1) == ",") { //jesli na ostatnim miejscu jest przercinek
+       finalNumber = finalNumber.substring(0, finalNumber.length-1);//usuñ ostatnie miejsce, ostatni char
+     }
+     console.log(finalNumber);
+     // $('#numer').val(finalNumber);
 
 
-    //  table.rows({ selected: true }).every(function(index){
-    //     // Get row ID
-    //     var rowId = this.data()[0];
+   //  table.rows({ selected: true }).every(function(index){
+   //     // Get row ID
+   //     var rowId = this.data()[0];
+    //
+   //     // Create a hidden element
+   //     $(form).append(
+   //         $('<input>')
+   //            .attr('type', 'hidden')
+   //            .attr('name', 'id[]')
+   //            .val(rowId)
+   //      );
+   //   });
+
+     // FOR DEMONSTRATION ONLY
+     // The code below is not needed in production
+
+     // Output form data to a console
+     // $('#example-console').text($(form).serialize());
+     // console.log("Submitek", $(form).serialize());
      //
-    //     // Create a hidden element
-    //     $(form).append(
-    //         $('<input>')
-    //            .attr('type', 'hidden')
-    //            .attr('name', 'id[]')
-    //            .val(rowId)
-    //      );
-    //   });
+     // // Remove added elements
+     // $('input[name="placek\[\]"]', form).remove();
+     //
+     // // Prevent actual form submission
+     // e.preventDefault();
+  });
+}
 
-      // FOR DEMONSTRATION ONLY
-      // The code below is not needed in production
-
-      // Output form data to a console
-      // $('#example-console').text($(form).serialize());
-      // console.log("Submitek", $(form).serialize());
-      //
-      // // Remove added elements
-      // $('input[name="placek\[\]"]', form).remove();
-      //
-      // // Prevent actual form submission
-      // e.preventDefault();
-   });
+$(document).ready(function() {
+   updateDataTable();
 });
 //*/
 

@@ -39,7 +39,7 @@
 				<button id="dodawanie_studentow">Dodaj Studentow</button>
 				<!--<button id="preview2">Dodaj Studenta z Pliku</button>-->
 				<div id="div2">
-					<form action="../connects/insert_to_db.php" method="post">
+					<form id="dodajStudenta" action="../connects/insert_to_db.php" method="post">
 						Imię  <input type="text" name="imie"  id="imie"/><br />
 						Nazwisko <input type="text" name="nazwisko" id="nazwisko" ><br />
 						Grupa <input type="text" name="grupa" id="grupa"><br />
@@ -47,6 +47,16 @@
 						ID Wykładowcy <input type="text" name="ID" id="ID_wyk" value="<?php echo $_SESSION['id']; ?>" readonly>
 						<input type="submit" name="Dodaj" value="Dodaj" style="margin-left:9px;"/>
 					</form>
+					<script>
+						$('#dodajStudenta').on('submit', function(e) {
+							e.preventDefault();
+							$('#dodajStudenta').ajaxForm({
+								url: '../connects/insert_to_db.php',
+								type: 'post'
+							});
+							updateDataTable();
+						});
+					</script>
 				</div>
 			<?php
 					if (isset($_SESSION['zle_dane'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
