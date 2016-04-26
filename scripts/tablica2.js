@@ -126,7 +126,7 @@ $(document).ready(function() {
        finalNumber = finalNumber.substring(0, finalNumber.length-1);//usuñ ostatnie miejsce, ostatni char
      }
      console.log(finalNumber);
-     // $('#numer').val(finalNumber);
+     $('#numer').val(finalNumber);
 
 
    //  table.rows({ selected: true }).every(function(index){
