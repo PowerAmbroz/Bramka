@@ -28,7 +28,7 @@
           url: '../connects/insert_to_db.php',
           type: 'post'
         });
-        updateDataTable();
+        table.ajax.reload();
       });
     </script>
   </body>

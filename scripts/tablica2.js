@@ -30,7 +30,7 @@ function updateDataTableSelectAllCtrl(table) {
    }
 }
 
-function updateDataTable() {
+$(document).ready(function() {
   // Initialize the table
   var table = $('#example').DataTable({
      ajax: '../dane/dane.json',
@@ -137,10 +137,6 @@ function updateDataTable() {
      // // Prevent actual form submission
      // e.preventDefault();
   });
-}
-
-$(document).ready(function() {
-   updateDataTable();
 });
 //*/
 
