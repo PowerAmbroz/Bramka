@@ -1,22 +1,18 @@
 {
-  "data" : [
-    {
-        "Imie": "Jan",
-        "Nazwisko": "Kowalski",
-        "Grupa": "115NCI",
-        "Telefon": "456789123"
-    },
-    {
-        "Imie": "Jerzy",
-        "Nazwisko": "Babel",
-        "Grupa": "123NC",
-        "Telefon": "13456789"
-    },
-    {
-        "Imie": "Karol",
-        "Nazwisko": "Bogucki",
-        "Grupa": "245NC",
-        "Telefon": "98765432"
-    }
-  ]
+    "data": [
+        [
+            "397",
+            "Eustachy",
+            "Motyka",
+            "123NCI",
+            "999888777"
+        ],
+        [
+            "398",
+            "drgd",
+            "rgdfg",
+            "hdt",
+            "345367456"
+        ]
+    ]
 }

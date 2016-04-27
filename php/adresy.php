@@ -64,23 +64,33 @@
 	<br />
 	<br />
 	<br />
-
-	<table id="example" class="display select" width="100%" cellspacing="0">
+<form id="frm-example" action="" method="POST">
+	<table id="example" class="display select" cellspacing="0" width="100%">
 		 <thead>
 				<tr>
-					 <th>Imie</th>
-					 <th>Nazwisko</th>
-					 <th>Grupa</th>
-					 <th>Telefon</th>
+						<th><input type="checkbox"></th>
+						<!--<th><input name="select_all" value="1" id="example-select-all" type="checkbox"></th>-->
+						<th>Imie</th>
+					 	<th>Nazwisko</th>
+					 	<th>Grupa</th>
+					 	<th>Telefon</th>
 				</tr>
 		 </thead>
 	</table>
+	<hr>
 
+	<p>Press <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p>
+
+	<p><button>Submit</button></p>
+
+	<b>Data submitted to the server:</b><br>
+	<pre id="example-console">
+	</form>
 
 	<script>
 		function myFunction()
 		{
-    	<?php 
+    	<?php
 					$_SESSION['zalkont']=false;
 					unset($_SESSION['rezultat_wgrania_pliku']);
 					unset($_SESSION['zly_format_pliku']);
@@ -90,5 +100,6 @@
 	</script>
 
 <?php
+
   include_once('../view/footer.php');
 ?>

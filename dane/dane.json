@@ -1,88 +1,53 @@
 {
     "data": [
-        {
-            "Imie": "zzz",
-            "Nazwisko": "zzz",
-            "Grupa": "123",
-            "Telefon": "111111111"
-        },
-        {
-            "Imie": "aaa",
-            "Nazwisko": "aaa",
-            "Grupa": "111",
-            "Telefon": "222222222"
-        },
-        {
-            "Imie": "ooo",
-            "Nazwisko": "ooo",
-            "Grupa": "ooo",
-            "Telefon": "656565"
-        },
-        {
-            "Imie": "bbb",
-            "Nazwisko": "bbb",
-            "Grupa": "bbb",
-            "Telefon": "123234525"
-        },
-        {
-            "Imie": "qqq",
-            "Nazwisko": "qqq",
-            "Grupa": "qqq",
-            "Telefon": "445544333"
-        },
-        {
-            "Imie": "sss",
-            "Nazwisko": "sss",
-            "Grupa": "sss",
-            "Telefon": "445544333"
-        },
-        {
-            "Imie": "eee",
-            "Nazwisko": "eee",
-            "Grupa": "eee",
-            "Telefon": "445544333"
-        },
-        {
-            "Imie": "sbs",
-            "Nazwisko": "sss",
-            "Grupa": "sss",
-            "Telefon": "666778980"
-        },
-        {
-            "Imie": "Jacek",
-            "Nazwisko": "Placek",
-            "Grupa": "123NCI",
-            "Telefon": "666999888"
-        },
-        {
-            "Imie": "eee",
-            "Nazwisko": "eee",
-            "Grupa": "eee",
-            "Telefon": "445544333"
-        },
-        {
-            "Imie": "sbs",
-            "Nazwisko": "sss",
-            "Grupa": "sss",
-            "Telefon": "666778980"
-        },
-        {
-            "Imie": "Mariusz",
-            "Nazwisko": "Rogalek",
-            "Grupa": "123NCI",
-            "Telefon": "123456789"
-        },
-        {
-            "Imie": "Simi",
-            "Nazwisko": "Relot",
-            "Grupa": "67",
-            "Telefon": "777888777"
-        },
-        {
-            "Imie": "Andrzej",
-            "Nazwisko": "Gural",
-            "Grupa": "123NCI",
-            "Telefon": "444444444"
-        }
+        [
+            "397",
+            "Eustachy",
+            "Motyka",
+            "123NCI",
+            "999888777"
+        ],
+        [
+            "422",
+            "a",
+            "a",
+            "123",
+            "234534456"
+        ],
+        [
+            "423",
+            "b",
+            "b",
+            "234",
+            "123253435"
+        ],
+        [
+            "424",
+            "c",
+            "c",
+            "123",
+            "345362131"
+        ],
+        [
+            "425",
+            "d",
+            "d",
+            "34",
+            "456568235"
+        ],
+        [
+            "426",
+            "e",
+            "e",
+            "43",
+            "123565623"
+        ],
+        [
+            "430",
+            "f",
+            "f",
+            "345",
+            "234265456"
+        ]
     ]
 }
