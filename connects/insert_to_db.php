@@ -2,6 +2,7 @@
 session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja jest to globalny pojemnik na dane
 
   $connection = mysqli_connect("localhost","root","","test") or die("Error " . mysqli_error($connection));
+//require_once ("../connects/testconnect.php");
 //  mysqli_select_db("test", $connection);
 /**********************************************************************************************
 if((empty($_POST['imie']))and(empty($_POST['nazwisko']))and(empty($_POST['grupa']))and(empty($_POST['nr_tel'])))

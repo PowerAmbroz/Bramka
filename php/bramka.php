@@ -38,7 +38,7 @@
 </head>
 
 <body>
-	<div class="adresymodal-bg">
+	<div id="adresymodal-bg" class="adresymodal-bg">
     <div class="adresymodal-container">
       <div class="w-clearfix">
         <div data-ix="close-adresy" class="adresymodal-close">Zamknij</div>
@@ -103,7 +103,7 @@
 				<hr>
 
 				<!-- <p>Wciśnij <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p> -->
-				<input id="guzior" type="submit" value="Submit" data-wait="Proszę czekać..." wait="Proszę czekać..." class="w-button form-submit">
+				<input id="guzior" type="submit" value="Submit" class="w-button form-submit">
 				<!-- <p><button>Submit</button></p> -->
 
 				<!-- <b>Data submitted to the server:</b><br>
@@ -144,9 +144,9 @@
               <input id="numer" type="text" placeholder="Podaj numery telefonu oddzielone przecinkami" name="numer" data-name="numer" class="w-input input"><img src="../img/kontakty.png" data-ix="open-adresy" class="adresyicon">
             </div>
 
-            <label for="wiadomosc">Wiadomość:</label><div id="charNum">160</div>
-            <textarea id="wiadomosc" placeholder="Podaj treść wiadomości..." name="wiadomosc" data-name="wiadomosc" class="w-input input textarea" onkeyup="countChar(this)" maxlength="160"></textarea>
-            <input type="submit" value="Wyślij wiadomość" data-wait="Proszę czekać..." wait="Proszę czekać..." class="w-button form-submit">
+            <label for="wiadomosc">Wiadomosc:</label><div id="charNum">160</div>
+            <textarea id="wiadomosc" placeholder="Podaj tresc wiadomosci bez polskich znakow..." name="wiadomosc" data-name="wiadomosc" class="w-input input textarea" onkeyup="countChar(this)" maxlength="160"></textarea>
+            <input type="submit" value="Wyslij wiadomosc" data-wait="Prosze czekac..." wait="Prosze czekac..." class="w-button form-submit">
           </form>
 
           <div class="w-form-done">
@@ -162,59 +162,4 @@
 	<?php
 
 		include_once('../view/footer.php');
-	?>
-
-
-
-
-
-
-<!--
-	<div id="adresymodal-bg" class="adresymodal-bg" style="display: none;">
-    <div class="adresymodal-container">
-      <div class="w-clearfix">
-        <div class="adresymodal-close" onclick="zamknij_adresy()">Zamknij</div>
-      </div>
-      <div class="adresymodal-window">
-
-			</div>
-    </div>
-  </div>
-
-	<div id="container">
-		<div id="logo">
-	<img src="../img/logo.jpg"/>
-		</div>
-	<br />
-	<?php	//echo "<p>Witaj ".$_SESSION['user'].'! [<a href="logout.php">Wyloguj się!</a>]</p>';	?>
-
-	<br />
-		<div id="upperbutton">
-			<button  id="adresy" onclick="pokaz_adresy()"></button>
-		</div>
-		<!--<input type="text" id="kontakty" name="konatakty"/>
-
-		<div id="lewy">
-		<div id="charNum">160</div>
-
-	<form action="sms.php" method="post">
-		<input type="text" id="numer" name="numer"/>
-		<textarea type="text" name="wiadomosc" id="wiadomosc" onkeyup="countChar(this)" maxlength="160"></textarea><br />
-	  <input type="submit" value="Wyslij" name="wyslij" id="wyslij">
-	</form>
-
-	<br />
-	</div>
-	<div id="prawy">
-	<?php
-	//if (isset($_SESSION['poszlo'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
-	{
-		//	echo $_SESSION['poszlo'];
-	}
-	?>
-	</div>
-
-	<?php
-
-	//  include_once('../view/footer.php');
 	?>

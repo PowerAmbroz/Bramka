@@ -110,7 +110,7 @@ class phpSerial
                                 {
                                         $device = "/dev/ttyUSB" . ($matches[1] - 1);
                                         //$device = "/dev/ttyS" . ($matches[1] - 1); - stara wersja
-                                        echo $device;
+                                        //echo $device;
 
                                 }
 
@@ -135,7 +135,7 @@ class phpSerial
                                 if (preg_match("@^COM(\d+):?$@i", $device, $matches) and $this->_exec(exec("mode " . $device . " xon=on BAUD=9600")) === 0)
                                 {
                                         $this->_windevice = "COM" . $matches[1];
-                                        $this->_device = "\\.\com" . $matches[1];
+                                        $this->_device = "\\\\.\\com" . $matches[1];
                                         $this->_dState = SERIAL_DEVICE_SET;
                                         return true;
                                 }

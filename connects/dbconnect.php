@@ -2,6 +2,7 @@
 //session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja jest to globalny pojemnik na dane
 
   //open connection to mysql db
+  //require_once ("../connects/testconnect.php");
   $connection = mysqli_connect("localhost","root","","test") or die("Error " . mysqli_error($connection));
 
   //fetch table rows from mysql db
