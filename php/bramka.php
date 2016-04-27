@@ -38,7 +38,7 @@
 </head>
 
 <body>
-	<div class="adresymodal-bg">
+	<div id="adresymodal-bg" class="adresymodal-bg">
     <div class="adresymodal-container">
       <div class="w-clearfix">
         <div data-ix="close-adresy" class="adresymodal-close">Zamknij</div>
@@ -103,7 +103,7 @@
 				<hr>
 
 				<!-- <p>Wciśnij <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p> -->
-				<input id="guzior" type="submit" value="Submit" data-wait="Proszę czekać..." wait="Proszę czekać..." class="w-button form-submit">
+				<input id="guzior" type="submit" value="Submit" class="w-button form-submit">
 				<!-- <p><button>Submit</button></p> -->
 
 				<!-- <b>Data submitted to the server:</b><br>
