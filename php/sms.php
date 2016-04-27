@@ -4,6 +4,7 @@
 $numer = $_POST['numer']; //pobranie loginu wysłanego z indexu
 $wiadomosc = $_POST['wiadomosc']; //pobranie hasła
 $msgCenter = array();
+$i2=1;
 
 // echo $numer;
 // echo $wiadomosc;
@@ -11,29 +12,34 @@ $msgCenter = array();
 $numerArray = explode(",", $numer);
 for($i = 0; $i < count($numerArray); $i++) {
   array_push($msgCenter, array($numerArray[$i], $wiadomosc));
+// $i2=$i;
 }
 
- fifomsgs($msgCenter);
+ fifomsgs($msgCenter,$i);
 
-function fifomsgs($msg) {
-  if (count($msg) != 0) {
-    //sendMessage($msg[0][0], $msg[0][1]);
+function fifomsgs($msg,$licznik) {
+  // if (count($msg) != 0) {
+for (;$licznik>=0;$licznik--){
+
+    Send_Message($msg[0][0], $msg[0][1]);
+
     echo "__1___";
+    echo $licznik;
     echo $msg[0][0];
     echo $msg[0][1];
     //sleep(5);
     array_shift($msg);
-
+   sleep(5);
     // sendMessage($msg[0][0], $msg[0][1]);
         //  echo $msgCenter;
     echo "__2___";
     echo $msg[0][0];
     echo $msg[0][1];
     // sendMessage($msg[0][0], $msg[0][1]);
-    fifomsgs($msgCenter);
+    //  fifomsgs($msgCenter);
     // print_r($msgCenter);
     // sendMessage($msg[0][0], $msg[0][1]);
-    echo "<br />";
+    //echo "<br />";
   }
   // print_r($msg);
 
@@ -43,10 +49,15 @@ function fifomsgs($msg) {
 
 //664861998,500072122
 
-function sendMessage($sendToNumer, $sendToMessage) {
+function Send_Message($sendToNumer, $sendToMessage) {
    // tutaj cala logika od wysylania wiadomosci
-   include "php_serial.class.php";
+
+
+     include_once "php_serial.class.php";
+     echo "baba lubi placki";
     $serial = new phpSerial();
+    // echo "baba lubi placki1234";
+
     $serial->deviceSet("COM1");
     $serial->confBaudRate(115200);
     //$serial->confParity("none");
@@ -56,6 +67,9 @@ function sendMessage($sendToNumer, $sendToMessage) {
     //echo "tu jestem, po konfiguracji";
      // Then we need to open it
     $serial->confCharacterLength(8);
+
+    // echo "baba lubi placki";
+
     $serial->deviceOpen('w+');
     $serial->sendMessage("at+cmgf=1");
    //$serial->sendMessage("AT+CSMP=\"17,100,0,240\"\n");
@@ -74,9 +88,10 @@ function sendMessage($sendToNumer, $sendToMessage) {
      //$read = $serial->readPort(1);
    //  echo "       OdpowiedĹş:        ";
      //echo "Trzeci ".$read;
-   //$serial->sendMessage("ATE1\n");
+//   $serial->sendMessage("ATZ\n");
+      //sleep(10);
    $serial->deviceClose();
-   sleep(5);
+
 
 }
 ?>
