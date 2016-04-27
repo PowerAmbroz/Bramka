@@ -1,3 +1,6 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="../scripts/webflow.js"></script>
+
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
