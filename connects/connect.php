@@ -8,6 +8,6 @@
 
 	$host = "localhost";
 	$db_user = "root"; //data base user - u�ytkownik bazy danych
-	$db_password = "ambroz19"; //has�o w bazie danych xampa jest puste, czyli go nie ma
+	$db_password = ""; //has�o w bazie danych xampa jest puste, czyli go nie ma
 	$db_name = "logowanie"; //nazwa bazy danych
 ?>

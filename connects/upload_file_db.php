@@ -57,8 +57,8 @@ session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja je
   }
 
 
-    $_SESSION['zalkont'] = true;
-     header('Location: ../php/adresy.php');
+    //$_SESSION['zalkont'] = true;
+     header('Location: ../php/bramka.php');
 
      mysqli_close($connection)
 
