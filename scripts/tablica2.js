@@ -55,6 +55,30 @@ lengthMenu: [[-1],["All"]],
   });
 
   $('#dodajStudenta').on('submit', function(e) {
+//pobranie danych z formularza do
+    var imie = $.trim($('#imie').val());
+    var nazwisko = $.trim($('#nazwisko').val());
+    var grupa = $.trim($('#grupa').val());
+    var telefon = $.trim($('#tel').val());
+
+//kontrola bledow, tak by sprawdzic czy imie i nazwisko jest tekstem, a numer liczba
+    if ((imie === '')||(nazwisko === '')||(grupa === '')||(telefon === '')){
+      alert('Wszystkie pola sa wymagane');
+      return false;
+    }
+    if (isNaN(telefon)){
+      alert('Telefon musi być numerem');
+      return false;
+    }
+    if (!isNaN(imie)){
+      alert('Imię musi skłądac się z liter');
+      return false;
+    }
+
+    if (!isNaN(nazwisko)){
+      alert('Nazwisko musi skłądac się z liter');
+      return false;
+    }
     e.preventDefault();
     $('#dodajStudenta').ajaxForm({
       url: '../connects/insert_to_db.php',

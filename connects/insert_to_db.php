@@ -11,8 +11,8 @@ Tak nie robić, zle zrobiony warunek, za duzo empty
 if(empty($_POST['imie'] && $_POST['nazwisko'] && $_POST['grupa'] && $_POST['nr_tel']))
 
 {
-  $_SESSION['zle_dane']='<span style="color:red"><p>Wszystkie Pola Są Wymagane</p></span>';
-  $_SESSION['zalkont']=true;
+  $zle_dane='<span style="color:red"><p>Wszystkie Pola Są Wymagane</p></span>';
+  //$_SESSION['zalkont']=true;
     //header('Location: ../php/adresy.php');
 }
 else {
@@ -22,13 +22,18 @@ else {
     $grupa=$_POST['grupa'];
     $tel=$_POST['nr_tel'];
 
-  //fetch table rows from mysql db
-    $sql = "INSERT INTO kontakty (ID_Wykladowcy, Imie, Nazwisko, Grupa, Telefon) VALUES('{$_SESSION['id']}','$imie','$nazwisko','$grupa','$tel')";
-    $result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));
 
-  		$_SESSION['zalkont']=true;
-        //header('Location: ../php/adresy.php');
+      //fetch table rows from mysql db
+        $sql = "INSERT INTO kontakty (ID_Wykladowcy, Imie, Nazwisko, Grupa, Telefon) VALUES('{$_SESSION['id']}','$imie','$nazwisko','$grupa','$tel')";
+        $result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));
 
-  mysqli_close($connection);
+      	//$_SESSION['zalkont']=true;
+            //header('Location: ../php/adresy.php');
+
+      mysqli_close($connection);
+
+
+
+
 }
 ?>

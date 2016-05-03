@@ -25,16 +25,17 @@ session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja je
 
                  if(empty($imie)&&empty($nazwisko)&&empty($grupa)&&empty($telefon)) //sprawdzenie czy zmienne są puste
                    {
-                     $_SESSION['zle_dane']='<span style="color:red">Nie wprowadzono wszystkich danych!</span>';
+                     $_SESSION['zle_dane2']='<span style="color:red">Nie wprowadzono wszystkich danych!</span>';
                      $_SESSION['zalkont']=true;
-                     header('Location: ../php/adresy.php');
+                     //header('Location: ../php/adresy.php');
                    }
-                 else
-                   {
-                     unset($_SESSION['zle_dane']);
+                 else {
+                     if (is_numeric($telefon)){
+                     unset($_SESSION['zle_dane2']);
                      //$c++;
-                    $sql2 = "INSERT INTO kontakty (ID_Wykladowcy, Imie, Nazwisko, Grupa, Telefon) VALUES ('{$_SESSION['id']}','$imie','$nazwisko','$grupa','$telefon')";
+                     $sql2 = "INSERT INTO kontakty (ID_Wykladowcy, Imie, Nazwisko, Grupa, Telefon) VALUES ('{$_SESSION['id']}','$imie','$nazwisko','$grupa','$telefon')";
                      $result2 = mysqli_query($connection, $sql2) or die("Error in Selecting " . mysqli_error($connection));
+                   }
                   }
             }
 
@@ -58,7 +59,7 @@ session_start(); //funkcja pozwalająca dokumentowi korzystać z sesji. Sesja je
 
 
     $_SESSION['zalkont'] = true;
-     header('Location: ../php/adresy.php');
+     header('Location: ../php/bramka.php');
 
      mysqli_close($connection)
 
