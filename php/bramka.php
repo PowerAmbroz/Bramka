@@ -70,7 +70,8 @@
 					<p>Format: Imię;Nazwisko;Grupa;Telefon</p>
 					<span style="color:red"><h5><p>Wgranie danych wymaga odświerzenia strony</p></h5></span>
 					<br />
-					<form action="../connects/upload_file_db.php" enctype="multipart/form-data" method='post'>
+
+					<form id="dodajStudentow" action="../connects/upload_file_db.php" enctype="multipart/form-data" method='post'>
 						<input id="file" type="file" name="file" value="Prześlij Plik" /><br />
 						<input type="submit" name="send" value="Prześlij" style="margin-left:150px;" />
 						<?php
