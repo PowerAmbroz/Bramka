@@ -47,6 +47,7 @@
 				<!-- zawartosc okna -->
 				<button id="dodawanie_studenta">Dodaj Studenta</button>
 				<button id="dodawanie_studentow">Dodaj Studentow</button>
+				<button id="trash" class="trash"><img src="../img/can.png" /></button>
 				<!--<button id="preview2">Dodaj Studenta z Pliku</button>-->
 				<div id="div2">
 					<form id="dodajStudenta" name="dodajStudenta" action="../connects/insert_to_db.php" method="post">

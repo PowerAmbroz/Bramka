@@ -97,25 +97,25 @@ lengthMenu: [[-1],["All"]],
   $('#dodajStudenta').resetForm();
   });
 
-  $('#dodajStudentow').on('submit', function(e) {
-//pobranie danych z formularza
-
-    e.preventDefault();
-    $('#dodajStudenta').ajaxForm({
-      url: '../connects/insert_to_db.php',
-      type: 'post'
-    });
-    $('#dodajStudentow').ajaxSubmit(function() {
-      var getPath = '../connects/dbconnect.php?wykladowca_id=' + wykladowca_id;
-      console.log(getPath);
-      $.get(getPath, function(data) {
-        console.log(data);
-        table.ajax.reload();
-      });
-    });
-
-  $('#dodajStudentow').resetForm();
-  });
+//   $('#dodajStudentow').on('submit', function(e) {
+// //pobranie danych z formularza
+//     //
+//     // e.preventDefault();
+//     // $('#dodajStudenta').ajaxForm({
+//     //   url: '../connects/insert_to_db.php',
+//     //   type: 'post'
+//     // });
+//     // $('#dodajStudentow').ajaxSubmit(function() {
+//     //   var getPath = '../connects/dbconnect.php?wykladowca_id=' + wykladowca_id;
+//     //   console.log(getPath);
+//     //   $.get(getPath, function(data) {
+//     //     console.log(data);
+//     //     table.ajax.reload();
+//     //   });
+//     // });
+//
+//   $('#dodajStudentow').resetForm();
+//   });
 
 
 
