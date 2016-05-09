@@ -183,25 +183,24 @@ lengthMenu: [[-1],["All"]],
 
   // DELETE
   $('#trash').on('click', function(e){
-    //e.preventDefault();
-     var phoneNumberArray = [];
+    e.preventDefault();
+     var DeletePhoneNumberArray = new Array();
 
      // Iterate over all selected checkboxes
      // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
      $('#example input[type="checkbox"]:checked').each(function() {
        var number = $(this).parent().parent().children('td:nth-child(5)').html();
-       number ? phoneNumberArray.push(number) : 0;
+       number ? DeletePhoneNumberArray.push(number) : 0;
      });
-     var jsonString = JSON.stringify(phoneNumberArray);
+     //var jsonString = JSON.stringify(DeletePhoneNumberArray);
    $.ajax({
-        cache: false,
         type: "POST",
         url: "../php/usun.php",
-        data: {data : jsonString},
+        data: {"DeletePhoneNumberArray" : JSON.stringify(DeletePhoneNumberArray)},
         cache: false,
 
-        success: function(){
-            alert(jsonString);
+        success: function(data){
+            alert(DeletePhoneNumberArray);
         }
     });
   });

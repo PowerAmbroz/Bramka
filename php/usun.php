@@ -1,5 +1,3 @@
 <?php
-$data = json_decode(stripslashes($_POST['data']));
-
-
+$data = json_decode($_POST['DeletePhoneNumberArray']);
 ?>
