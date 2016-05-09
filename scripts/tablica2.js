@@ -177,37 +177,13 @@ lengthMenu: [[-1],["All"]],
      $('#numer').val(finalNumber);
      zamknij_adresy();
 
-   //  table.rows({ selected: true }).every(function(index){
-   //     // Get row ID
-   //     var rowId = this.data()[0];
-    //
-   //     // Create a hidden element
-   //     $(form).append(
-   //         $('<input>')
-   //            .attr('type', 'hidden')
-   //            .attr('name', 'id[]')
-   //            .val(rowId)
-   //      );
-   //   });
 
-     // FOR DEMONSTRATION ONLY
-     // The code below is not needed in production
-
-     // Output form data to a console
-     // $('#example-console').text($(form).serialize());
-     // console.log("Submitek", $(form).serialize());
-     //
-     // // Remove added elements
-     // $('input[name="placek\[\]"]', form).remove();
-     //
-     // // Prevent actual form submission
-     // e.preventDefault();
   });
 
 
   // DELETE
   $('#trash').on('click', function(e){
-    e.preventDefault();
+    //e.preventDefault();
      var phoneNumberArray = [];
 
      // Iterate over all selected checkboxes
@@ -216,6 +192,18 @@ lengthMenu: [[-1],["All"]],
        var number = $(this).parent().parent().children('td:nth-child(5)').html();
        number ? phoneNumberArray.push(number) : 0;
      });
+     var jsonString = JSON.stringify(phoneNumberArray);
+   $.ajax({
+        cache: false,
+        type: "POST",
+        url: "../php/usun.php",
+        data: {data : jsonString},
+        cache: false,
+
+        success: function(){
+            alert(jsonString);
+        }
+    });
   });
 
   // ajax, który przekaże tablicę phoneNumberArray
