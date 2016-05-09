@@ -203,5 +203,27 @@ lengthMenu: [[-1],["All"]],
      // // Prevent actual form submission
      // e.preventDefault();
   });
+
+
+  // DELETE
+  $('#trash').on('click', function(e){
+    e.preventDefault();
+     var phoneNumberArray = [];
+
+     // Iterate over all selected checkboxes
+     // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
+     $('#example input[type="checkbox"]:checked').each(function() {
+       var number = $(this).parent().parent().children('td:nth-child(5)').html();
+       number ? phoneNumberArray.push(number) : 0;
+     });
+  });
+
+  // ajax, który przekaże tablicę phoneNumberArray
+  // do pliku PHP (eg. usunStudentow.php) w którym
+  // otrzymana tablica zostanie odczytana "krok po
+  // kroku", a nastepnie dla każdego z tych kroków
+  // zostanie wykonany SQL:
+  // DELETE FROM tablica WHERE tel = wartosc z array'a
+
 });
 //*/
