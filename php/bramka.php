@@ -10,7 +10,7 @@
 ?>
 
 <?php
-	require_once '../connects/dbconnect.php';
+	//require_once '../connects/dbconnect.php';
 	include_once('../view/header.php');
 ?>
 
@@ -47,7 +47,10 @@
 				<!-- zawartosc okna -->
 				<button id="dodawanie_studenta">Dodaj Studenta</button>
 				<button id="dodawanie_studentow">Dodaj Studentow</button>
-				<button id="trash" class="trash"><img src="../img/can.png" /></button>
+				<!-- <form action="../php/usun.php"> -->
+					<button type="submit" id="trash" class="trash"><img src="../img/can.png" /></button>
+					<!-- <input type=submit id="trash"><img src="../img/can.png" /></input> -->
+				<!-- </form> -->
 				<!--<button id="preview2">Dodaj Studenta z Pliku</button>-->
 				<div id="div2">
 					<form id="dodajStudenta" name="dodajStudenta" action="../connects/insert_to_db.php" method="post">

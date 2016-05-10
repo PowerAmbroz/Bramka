@@ -33,7 +33,8 @@ function updateDataTableSelectAllCtrl(table) {
 $(document).ready(function() {
   // Initialize the table
   var table = $('#example').DataTable({
-     ajax: '../dane/dane.json',
+    //  ajax: '../dane/dane.json',
+    ajax: '../connects/get_from_db.php',
      select: true,
 lengthMenu: [[-1],["All"]],
      columnDefs: [
@@ -97,27 +98,6 @@ lengthMenu: [[-1],["All"]],
   $('#dodajStudenta').resetForm();
   });
 
-//   $('#dodajStudentow').on('submit', function(e) {
-// //pobranie danych z formularza
-//     //
-//     // e.preventDefault();
-//     // $('#dodajStudenta').ajaxForm({
-//     //   url: '../connects/insert_to_db.php',
-//     //   type: 'post'
-//     // });
-//     // $('#dodajStudentow').ajaxSubmit(function() {
-//     //   var getPath = '../connects/dbconnect.php?wykladowca_id=' + wykladowca_id;
-//     //   console.log(getPath);
-//     //   $.get(getPath, function(data) {
-//     //     console.log(data);
-//     //     table.ajax.reload();
-//     //   });
-//     // });
-//
-//   $('#dodajStudentow').resetForm();
-//   });
-
-
 
   // Handle row selection event
   $('#example').on('select.dt deselect.dt', function(e, api, type, items) {
@@ -176,41 +156,37 @@ lengthMenu: [[-1],["All"]],
      //console.log(finalNumber);
      $('#numer').val(finalNumber);
      zamknij_adresy();
-
-
   });
 
 
   // DELETE
   $('#trash').on('click', function(e){
-    e.preventDefault();
-     var DeletePhoneNumberArray = new Array();
+      e.preventDefault();
+     var DeletePhoneNumberArray = [];
 
      // Iterate over all selected checkboxes
      // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
      $('#example input[type="checkbox"]:checked').each(function() {
        var number = $(this).parent().parent().children('td:nth-child(5)').html();
        number ? DeletePhoneNumberArray.push(number) : 0;
+           table.ajax.reload();
      });
+    //  console.log(DeletePhoneNumberArray);
      //var jsonString = JSON.stringify(DeletePhoneNumberArray);
    $.ajax({
+        // dataType: "json",
         type: "POST",
         url: "../php/usun.php",
         data: {"DeletePhoneNumberArray" : JSON.stringify(DeletePhoneNumberArray)},
-        cache: false,
+        cache: false
 
-        success: function(data){
-            alert(DeletePhoneNumberArray);
-        }
+        // success: function(data){
+        //     alert(DeletePhoneNumberArray);
+        // }
     });
+
   });
 
-  // ajax, który przekaże tablicę phoneNumberArray
-  // do pliku PHP (eg. usunStudentow.php) w którym
-  // otrzymana tablica zostanie odczytana "krok po
-  // kroku", a nastepnie dla każdego z tych kroków
-  // zostanie wykonany SQL:
-  // DELETE FROM tablica WHERE tel = wartosc z array'a
 
 });
 //*/
