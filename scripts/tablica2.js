@@ -87,14 +87,14 @@ lengthMenu: [[-1],["All"]],
       type: 'post'
     });
     $('#dodajStudenta').ajaxSubmit(function() {
-      var getPath = '../connects/dbconnect.php?wykladowca_id=' + wykladowca_id;
+      var getPath = '../connects/get_from_db.php?wykladowca_id=' + wykladowca_id;
       console.log(getPath);
       $.get(getPath, function(data) {
         console.log(data);
         table.ajax.reload();
       });
     });
-
+      //  table.ajax.reload();
   $('#dodajStudenta').resetForm();
   });
 
@@ -169,7 +169,7 @@ lengthMenu: [[-1],["All"]],
      $('#example input[type="checkbox"]:checked').each(function() {
        var number = $(this).parent().parent().children('td:nth-child(5)').html();
        number ? DeletePhoneNumberArray.push(number) : 0;
-           table.ajax.reload();
+       table.ajax.reload();
      });
     //  console.log(DeletePhoneNumberArray);
      //var jsonString = JSON.stringify(DeletePhoneNumberArray);
