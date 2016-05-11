@@ -139,8 +139,7 @@ lengthMenu: [[-1],["All"]],
      var form = this;
      var phoneNumberArray = [];
 
-     // Iterate over all selected checkboxes
-     // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
+
      $('#example input[type="checkbox"]:checked').each(function() {
        var number = $(this).parent().parent().children('td:nth-child(5)').html();
        number ? phoneNumberArray.push(number) : 0;
@@ -169,20 +168,18 @@ lengthMenu: [[-1],["All"]],
      $('#example input[type="checkbox"]:checked').each(function() {
        var number = $(this).parent().parent().children('td:nth-child(5)').html();
        number ? DeletePhoneNumberArray.push(number) : 0;
-       table.ajax.reload();
+
      });
-    //  console.log(DeletePhoneNumberArray);
-     //var jsonString = JSON.stringify(DeletePhoneNumberArray);
+
    $.ajax({
-        // dataType: "json",
+
         type: "POST",
         url: "../php/usun.php",
         data: {"DeletePhoneNumberArray" : JSON.stringify(DeletePhoneNumberArray)},
-        cache: false
-
-        // success: function(data){
-        //     alert(DeletePhoneNumberArray);
-        // }
+        cache: false,
+        success: function(data){
+            table.ajax.reload();
+        }
     });
 
   });
