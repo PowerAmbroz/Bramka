@@ -57,8 +57,6 @@ require ("../connects/testconnect.php");
 
   }
 
-
-    $_SESSION['zalkont'] = true;
      header('Location: ../php/bramka.php');
 
      mysqli_close($connection)
