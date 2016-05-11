@@ -2,12 +2,12 @@
 
 
 <?php
-//ogólny plik zawieraj¹cy namiary na baze danych a nie na tabele. Plik bêdzie pobierany przez wiele stron, dlatego jest tu jedynie ogólne ³¹czenie z baz¹
+//ogï¿½lny plik zawierajï¿½cy namiary na baze danych a nie na tabele. Plik bï¿½dzie pobierany przez wiele stron, dlatego jest tu jedynie ogï¿½lne ï¿½ï¿½czenie z bazï¿½
 
 
 
 	$host = "localhost";
-	$db_user = "root"; //data base user - u¿ytkownik bazy danych
-	$db_password = ""; //has³o w bazie danych xampa jest puste, czyli go nie ma
+	$db_user = "root"; //data base user - uï¿½ytkownik bazy danych
+	$db_password = ""; //hasï¿½o w bazie danych xampa jest puste, czyli go nie ma
 	$db_name = "logowanie"; //nazwa bazy danych
 ?>

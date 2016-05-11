@@ -21,8 +21,6 @@
 	<link rel="stylesheet" href="css/style.css">
 
 	    <script src="http://code.jquery.com/jquery-1.5.js"></script>
-
-
 </head>
 
 <body>

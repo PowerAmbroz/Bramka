@@ -1,6 +1,3 @@
-$(function schowana(){
-    $("#div2").hide();
-    $("#preview").on("click", function(){
-        $("#div2").toggle();
-    });
-});
+function dodawanie_studenta() {
+    $("#div2").toggle();
+}
