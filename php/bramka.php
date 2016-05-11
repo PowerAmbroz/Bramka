@@ -44,21 +44,19 @@
         <div data-ix="close-adresy" class="adresymodal-close">Zamknij</div>
       </div>
       <div class="adresymodal-window">
-				<!-- zawartosc okna -->
+
 				<button id="dodawanie_studenta">Dodaj Studenta</button>
 				<button id="dodawanie_studentow">Dodaj Studentow</button>
-				<!-- <form action="../php/usun.php"> -->
+
 					<button type="submit" id="trash" class="trash"><img src="../img/can.png" /></button>
-					<!-- <input type=submit id="trash"><img src="../img/can.png" /></input> -->
-				<!-- </form> -->
-				<!--<button id="preview2">Dodaj Studenta z Pliku</button>-->
+
 				<div id="div2">
 					<form id="dodajStudenta" name="dodajStudenta" action="../connects/insert_to_db.php" method="post">
 						Imię  <input type="text" name="imie"  id="imie"/><br />
 						Nazwisko <input type="text" name="nazwisko" id="nazwisko" ><br />
 						Grupa <input type="text" name="grupa" id="grupa"><br />
 						Nr. Tel. <input type="tel" name="nr_tel" id="tel" maxlength="9"/><br />
-						<!-- ID Wykładowcy <input type="text" name="ID" id="ID_wyk" value="<?php //echo $_SESSION['id']; ?>" readonly> -->
+
 						<?php
 							if (isset($_SESSION['zle_dane'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
 							{
@@ -113,12 +111,8 @@
 				</table>
 				<hr>
 
-				<!-- <p>Wciśnij <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p> -->
 				<input id="guzior" type="submit" value="Submit" class="w-button form-submit">
-				<!-- <p><button>Submit</button></p> -->
 
-				<!-- <b>Data submitted to the server:</b><br>
-				<pre id="example-console"> -->
 				</form>
 
 				<script>
