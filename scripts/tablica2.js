@@ -33,7 +33,8 @@ function updateDataTableSelectAllCtrl(table) {
 $(document).ready(function() {
   // Initialize the table
   var table = $('#example').DataTable({
-     ajax: '../dane/dane.json',
+    //  ajax: '../dane/dane.json',
+    ajax: '../connects/get_from_db.php',
      select: true,
 lengthMenu: [[-1],["All"]],
      columnDefs: [
@@ -54,23 +55,49 @@ lengthMenu: [[-1],["All"]],
           order: [[1, 'asc']]
   });
 
+//Dodawanie pojedynczego studenta
   $('#dodajStudenta').on('submit', function(e) {
+//pobranie danych z formularza
+    var imie = $.trim($('#imie').val());
+    var nazwisko = $.trim($('#nazwisko').val());
+    var grupa = $.trim($('#grupa').val());
+    var telefon = $.trim($('#tel').val());
+
+//kontrola bledow, tak by sprawdzic czy imie i nazwisko jest tekstem, a numer liczba
+    if ((imie === '')||(nazwisko === '')||(grupa === '')||(telefon === '')){
+      alert('Wszystkie pola sa wymagane');
+      return false;
+    }
+    if (isNaN(telefon)){
+      alert('Telefon musi być numerem');
+      return false;
+    }
+    if (!isNaN(imie)){
+      alert('Imię musi skłądac się z liter');
+      return false;
+    }
+
+    if (!isNaN(nazwisko)){
+      alert('Nazwisko musi skłądac się z liter');
+      return false;
+    }
     e.preventDefault();
     $('#dodajStudenta').ajaxForm({
       url: '../connects/insert_to_db.php',
       type: 'post'
     });
     $('#dodajStudenta').ajaxSubmit(function() {
-      var getPath = '../connects/dbconnect.php?wykladowca_id=' + wykladowca_id;
+      var getPath = '../connects/get_from_db.php?wykladowca_id=' + wykladowca_id;
       console.log(getPath);
       $.get(getPath, function(data) {
         console.log(data);
         table.ajax.reload();
       });
     });
-
+      //  table.ajax.reload();
   $('#dodajStudenta').resetForm();
   });
+
 
   // Handle row selection event
   $('#example').on('select.dt deselect.dt', function(e, api, type, items) {
@@ -112,8 +139,7 @@ lengthMenu: [[-1],["All"]],
      var form = this;
      var phoneNumberArray = [];
 
-     // Iterate over all selected checkboxes
-     // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
+
      $('#example input[type="checkbox"]:checked').each(function() {
        var number = $(this).parent().parent().children('td:nth-child(5)').html();
        number ? phoneNumberArray.push(number) : 0;
@@ -129,32 +155,35 @@ lengthMenu: [[-1],["All"]],
      //console.log(finalNumber);
      $('#numer').val(finalNumber);
      zamknij_adresy();
-
-   //  table.rows({ selected: true }).every(function(index){
-   //     // Get row ID
-   //     var rowId = this.data()[0];
-    //
-   //     // Create a hidden element
-   //     $(form).append(
-   //         $('<input>')
-   //            .attr('type', 'hidden')
-   //            .attr('name', 'id[]')
-   //            .val(rowId)
-   //      );
-   //   });
-
-     // FOR DEMONSTRATION ONLY
-     // The code below is not needed in production
-
-     // Output form data to a console
-     // $('#example-console').text($(form).serialize());
-     // console.log("Submitek", $(form).serialize());
-     //
-     // // Remove added elements
-     // $('input[name="placek\[\]"]', form).remove();
-     //
-     // // Prevent actual form submission
-     // e.preventDefault();
   });
+
+
+  // DELETE
+  $('#trash').on('click', function(e){
+      e.preventDefault();
+     var DeletePhoneNumberArray = [];
+
+     // Iterate over all selected checkboxes
+     // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
+     $('#example input[type="checkbox"]:checked').each(function() {
+       var number = $(this).parent().parent().children('td:nth-child(5)').html();
+       number ? DeletePhoneNumberArray.push(number) : 0;
+
+     });
+
+   $.ajax({
+
+        type: "POST",
+        url: "../php/usun.php",
+        data: {"DeletePhoneNumberArray" : JSON.stringify(DeletePhoneNumberArray)},
+        cache: false,
+        success: function(data){
+            table.ajax.reload();
+        }
+    });
+
+  });
+
+
 });
 //*/

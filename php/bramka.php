@@ -10,7 +10,7 @@
 ?>
 
 <?php
-	require_once '../connects/dbconnect.php';
+	//require_once '../connects/dbconnect.php';
 	include_once('../view/header.php');
 ?>
 
@@ -44,46 +44,55 @@
         <div data-ix="close-adresy" class="adresymodal-close">Zamknij</div>
       </div>
       <div class="adresymodal-window">
-				<!-- zawartosc okna -->
+
 				<button id="dodawanie_studenta">Dodaj Studenta</button>
 				<button id="dodawanie_studentow">Dodaj Studentow</button>
-				<!--<button id="preview2">Dodaj Studenta z Pliku</button>-->
+
+					<button type="submit" id="trash" class="trash"><img src="../img/can.png" /></button>
+
 				<div id="div2">
-					<form id="dodajStudenta" action="../connects/insert_to_db.php" method="post">
+					<form id="dodajStudenta" name="dodajStudenta" action="../connects/insert_to_db.php" method="post">
 						Imię  <input type="text" name="imie"  id="imie"/><br />
 						Nazwisko <input type="text" name="nazwisko" id="nazwisko" ><br />
 						Grupa <input type="text" name="grupa" id="grupa"><br />
 						Nr. Tel. <input type="tel" name="nr_tel" id="tel" maxlength="9"/><br />
-						<!-- ID Wykładowcy <input type="text" name="ID" id="ID_wyk" value="<?php //echo $_SESSION['id']; ?>" readonly> -->
+
+						<?php
+							if (isset($_SESSION['zle_dane'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+							{
+									echo $_SESSION['zle_dane'];
+							}
+						?>
 						<input type="submit" name="Dodaj" value="Dodaj" style="margin-left:9px;"/>
 					</form>
 				</div>
-				<?php
-					if (isset($_SESSION['zle_dane'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
-					{
-							echo $_SESSION['zle_dane'];
-					}
-				?>
+
 				<div id="div3">
 					Dodaj Studenta z Pliku<br />
 					<p>Format: Imię;Nazwisko;Grupa;Telefon</p>
+					<span style="color:red"><h5><p>Wgranie danych wymaga odświerzenia strony</p></h5></span>
 					<br />
-					<form action="../connects/upload_file_db.php" enctype="multipart/form-data" method='post'>
+
+					<form id="dodajStudentow" action="../connects/upload_file_db.php" enctype="multipart/form-data" method='post'>
 						<input id="file" type="file" name="file" value="Prześlij Plik" /><br />
 						<input type="submit" name="send" value="Prześlij" style="margin-left:150px;" />
+						<?php
+							if (isset($_SESSION['zle_dane2'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+							{
+									echo $_SESSION['zle_dane2'];
+							}
+							if (isset($_SESSION['rezultat_wgrania_pliku'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+							{
+									echo $_SESSION['rezultat_wgrania_pliku'];
+							}
+
+							if (isset($_SESSION['zly_format_pliku'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
+							{
+									echo $_SESSION['zly_format_pliku'];
+							}
+							?>
 					</form>
 				</div>
-				<?php
-						if (isset($_SESSION['rezultat_wgrania_pliku'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
-						{
-								echo $_SESSION['rezultat_wgrania_pliku'];
-						}
-
-						if (isset($_SESSION['zly_format_pliku'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
-						{
-								echo $_SESSION['zly_format_pliku'];
-						}
-					?>
 				<br />
 				<br />
 				<br />
@@ -102,12 +111,8 @@
 				</table>
 				<hr>
 
-				<!-- <p>Wciśnij <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p> -->
 				<input id="guzior" type="submit" value="Submit" class="w-button form-submit">
-				<!-- <p><button>Submit</button></p> -->
 
-				<!-- <b>Data submitted to the server:</b><br>
-				<pre id="example-console"> -->
 				</form>
 
 				<script>
