@@ -260,3 +260,15 @@ body {
 {
   width:100%;
 }
+
+#zegarek
+{
+margin-top: 10px;
+margin-bottom: 40px;
+margin-left: 5px;
+font-size: 60px;
+text-align: center;
+color: white;
+font-family: 'Josefin Sans', sans-serif;
+line-height: 115%;
+}

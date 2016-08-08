@@ -37,7 +37,7 @@
 	  <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
 </head>
 
-<body>
+<body onload="odliczanie();">
 	<div id="adresymodal-bg" class="adresymodal-bg">
     <div class="adresymodal-container">
       <div class="w-clearfix">
@@ -132,6 +132,7 @@
   </div>
   <div class="w-section section">
     <div class="sidebar">
+			<div id="zegarek">12:00:00</div>
       <div id="profilePicDiv" class="sidebar-personicon"></div>
       <h2 id="profileName" class="sidebar-header"><?php echo "<p>Witaj ".$_SESSION['user'].'!</p>'?></h2><a href="logout.php" class="w-button sidebar-button">Wyloguj</a>
     </div>
@@ -149,7 +150,7 @@
               <input id="numer" type="text" placeholder="Podaj numery telefonu oddzielone przecinkami" name="numer" data-name="numer" class="w-input input"><img src="../img/kontakty.png" data-ix="open-adresy" class="adresyicon">
             </div>
 
-            <label for="wiadomosc">Wiadomosc:</label><div id="charNum">160</div>
+            <label for="wiadomosc">Wiadomosc:</label><div id="charNum">130</div>
             <textarea id="wiadomosc" placeholder="Podaj tresc wiadomosci bez polskich znakow..." name="wiadomosc" data-name="wiadomosc" class="w-input input textarea" onkeyup="countChar(this)" maxlength="160"></textarea>
             <input type="submit" value="Wyslij wiadomosc" data-wait="Prosze czekac..." wait="Prosze czekac..." class="w-button form-submit">
           </form>
