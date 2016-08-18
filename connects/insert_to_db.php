@@ -23,9 +23,5 @@ else {
 
 
       mysqli_close($connection);
-
-
-
-
 }
 ?>

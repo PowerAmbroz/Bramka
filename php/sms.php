@@ -47,5 +47,5 @@ function Send_Message($sendToNumer, $sendToMessage) {
   $serial->sendMessage(chr(26));
   $serial->deviceClose();
 }
-	//header("Location: ../php/bramka.php");
+	header("Location: ../php/bramka.php");
 ?>
