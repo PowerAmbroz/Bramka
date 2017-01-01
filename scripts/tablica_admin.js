@@ -2,6 +2,7 @@
 // Updates "Select all" control in a data table
 //
 function updateDataTableSelectAllCtrl(table) {
+
    var $table = table.table().container();
    var $chkbox_all = $('tbody input[type="checkbox"]', $table);
    var $chkbox_checked = $('tbody input[type="checkbox"]:checked', $table);
@@ -31,40 +32,48 @@ function updateDataTableSelectAllCtrl(table) {
 }
 
 $(document).ready(function() {
+  $.get('../connects/get_from_db.php', function(data){
+    // console.log("Data: ", data);
+  });
   // Initialize the table
   var table = $('#example').DataTable({
     //  ajax: '../dane/dane.json',
+    // sAjaxSource : '../connects/get_teachers_from_db.php',
     ajax: '../connects/get_from_db.php',
-     select: true,
-lengthMenu: [[-1],["All"]],
-     columnDefs: [
-       {
-         targets: 0,
-         orderable: false,
-         searchable: false,
-         width: '1%',
-         className: 'dt-body-center',
-         render: function(data, type, full, meta) {
-             return '<input type="checkbox">';
-          }
+    select: true,
+    lengthMenu: [[-1],["All"]],
+    columnDefs: [
+      {
+        targets: 0,
+        orderable: false,
+        searchable: false,
+        width: '1%',
+        className: 'dt-body-center',
+        render: function(data, type, full, meta) {
+          return '<input type="checkbox">';
+        }
       }
-     ],
-     select: {
-        style: 'multi'
-     },
-          order: [[1, 'asc']]
+    ],
+    select: {
+      style: 'multi'
+    },
+    order: [[1, 'asc']]
   });
 
 //Dodawanie pojedynczego studenta
-  $('#dodajStudenta').on('submit', function(e) {
+  $('#dodajWykladowce').on('submit', function(e) {
 //pobranie danych z formularza
     var imie = $.trim($('#imie').val());
     var nazwisko = $.trim($('#nazwisko').val());
-    var grupa = $.trim($('#grupa').val());
+    var haslo = $.trim($('#haslo').val());
+    var wydzial = $.trim($('#wydzial').val());
+    var email = $.trim($('#e-mail').val());
     var telefon = $.trim($('#tel').val());
+    // var permision = $.trim($('permision_level').val());
+    console.log(imie, nazwisko, haslo, wydzial, email, telefon);
 
 //kontrola bledow, tak by sprawdzic czy imie i nazwisko jest tekstem, a numer liczba
-    if ((imie === '')||(nazwisko === '')||(grupa === '')||(telefon === '')){
+    if ((imie === '')||(nazwisko === '')||(haslo === '')||(wydzial === '')||(email === '')||(telefon === '')){
       alert('Wszystkie pola sa wymagane');
       return false;
     }
@@ -76,26 +85,25 @@ lengthMenu: [[-1],["All"]],
       alert('Imię musi skłądac się z liter');
       return false;
     }
-
     if (!isNaN(nazwisko)){
       alert('Nazwisko musi skłądac się z liter');
       return false;
     }
-    e.preventDefault();
-    $('#dodajStudenta').ajaxForm({
+     e.preventDefault();
+    $('#dodajWykladowce').ajaxForm({
       url: '../connects/insert_to_db.php',
       type: 'post'
     });
-    $('#dodajStudenta').ajaxSubmit(function() {
-      var getPath = '../connects/get_from_db.php?wykladowca_id=' + wykladowca_id;
+    $('#dodajWykladowce').ajaxSubmit(function() {
+      var getPath = '../connects/get_from_db.php';
       console.log(getPath);
       $.get(getPath, function(data) {
         console.log(data);
         table.ajax.reload();
       });
     });
-      //  table.ajax.reload();
-  $('#dodajStudenta').resetForm();
+       table.ajax.reload();
+  $('#dodajWykladowce').resetForm();
   });
 
 
@@ -141,7 +149,7 @@ lengthMenu: [[-1],["All"]],
 
 
      $('#example input[type="checkbox"]:checked').each(function() {
-       var number = $(this).parent().parent().children('td:nth-child(5)').html();
+       var number = $(this).parent().parent().children('td:nth-child(6)').html();
        number ? phoneNumberArray.push(number) : 0;
      });
 

@@ -1,11 +1,11 @@
 <?php
 
-	session_start(); //funkcja pozwalajÄ…ca dokumentowi korzystaÄ‡ z sesji. Sesja jest to globalny pojemnik na dane
+	session_start(); //funkcja pozwalaj¹ca dokumentowi korzystaæ z sesji. Sesja jest to globalny pojemnik na dane
 
-	if((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true)) //jeÅ›li zalogowany jest ustawiony i zalogowany jest prawdziwy to skocz od razu do bramka.php
+	if((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true)) //jeœli zalogowany jest ustawiony i zalogowany jest prawdziwy to skocz od razu do bramka.php
 	{
 		header('Location: php/bramka.php');
-		exit();//pomija resztÄ™ dokumentu
+		exit();//pomija resztê dokumentu
 	}
 
 // include("view/header.php");
@@ -35,12 +35,12 @@
 		<div class="uk-width-medium-1-2 form_handler">
 <form class="uk-form form_login" action="php/zaloguj.php" method="post">
  <input class="login" type="text" name="login" placeholder="Login"/>
- <input class="haslo" type="password" name="haslo" placeholder="HasÅ‚o"/>
-<input class="uk-button main_button" type="submit" value="Zaloguj" />
+ <input class="haslo" type="password" name="haslo" placeholder="Has³o"/>
+<input class="uk-button" type="submit" value="Zaloguj" />
 
 </form>
 <?php
-	if (isset($_SESSION['blad'])) //sprawdza czy zmienna bÅ‚Ä…d jest ustawiona w sesji
+	if (isset($_SESSION['blad'])) //sprawdza czy zmienna b³¹d jest ustawiona w sesji
 	{
 	echo $_SESSION['blad'];
 	}

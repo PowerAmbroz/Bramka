@@ -11,12 +11,7 @@
     <script>
       var wykladowca_id = '<?php echo $_SESSION['id']?>';
     </script>
-
-    <?php if($_SESSION['permision']==='1') {?>
-    <script type="text/javascript" src="../scripts/tablica_admin.js"></script>
-    <?php }else{?>
     <script type="text/javascript" src="../scripts/tablica2.js"></script>
-      <?php } ?>
     <?php include_once('customJS.php'); ?>
     <script>
       $(document).ready(function() {

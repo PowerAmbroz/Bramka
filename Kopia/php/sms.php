@@ -5,7 +5,7 @@ session_start();
 $numer = $_POST['numer']; //pobranie loginu wysłanego z indexu
 $wiadomosc = $_POST['wiadomosc']; //pobranie hasła
 $autor = $_SESSION["user"];
-$wiadomosc = $wiadomosc . "\n" . "//" . $autor;
+$wiadomosc = $wiadomosc . "<br>" . $autor;
 $msgCenter = array();
 $numerArray = explode(",", $numer);
 

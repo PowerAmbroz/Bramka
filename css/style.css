@@ -1,0 +1,50 @@
+.uk-container{
+  margin: 0 auto;
+}
+
+.logo img{
+  width: 100%;
+}
+
+.form_handler{
+  padding-top:20px;
+}
+
+.form_login{
+  /*width: 100%;*/
+  display: block;
+  margin: 0 auto;
+}
+
+.login, .haslo{
+  display: block;
+  width: 100%;
+  margin: 10px 0 10px 0;
+  border-radius: 20px !important;
+
+}
+
+.uk-button{
+  display: table;
+  width: 100%;
+}
+
+.main_button{
+  background: #a50e07;
+  color: white !important;
+  font-weight: bold !important;
+  border-radius: 20px !important;
+}
+
+.main_button:hover{
+  background: #025090;
+  transition-duration: 0.3s;
+}
+
+.form_login > input{
+  margin-bottom: 10px;
+}
+
+.telefon{
+  margin-top: 20px;
+}

@@ -1,27 +1,24 @@
-///*//Wersja 3
-// Updates "Select all" control in a data table
-//
 function updateDataTableSelectAllCtrl(table) {
    var $table = table.table().container();
    var $chkbox_all = $('tbody input[type="checkbox"]', $table);
    var $chkbox_checked = $('tbody input[type="checkbox"]:checked', $table);
    var chkbox_select_all = $('thead input[type="checkbox"]', $table).get(0);
 
-   // If none of the checkboxes are checked
+    //  kiedy zaden checkbox nie jest zaznaczony
    if ($chkbox_checked.length === 0) {
       chkbox_select_all.checked = false;
       if ('indeterminate' in chkbox_select_all) {
          chkbox_select_all.indeterminate = false;
       }
 
-   // If all of the checkboxes are checked
+  //  kiedy wszystkit checkboxy sa zaznaczone
    } else if ($chkbox_checked.length === $chkbox_all.length) {
       chkbox_select_all.checked = true;
       if ('indeterminate' in chkbox_select_all) {
          chkbox_select_all.indeterminate = false;
       }
 
-   // If some of the checkboxes are checked
+   // kiedy kilka checkboxow jest zaznaczonych
    } else {
       chkbox_select_all.checked = true;
       if ('indeterminate' in chkbox_select_all) {
@@ -31,9 +28,8 @@ function updateDataTableSelectAllCtrl(table) {
 }
 
 $(document).ready(function() {
-  // Initialize the table
+  // Inicjalizacja Tabeli
   var table = $('#example').DataTable({
-    //  ajax: '../dane/dane.json',
     ajax: '../connects/get_from_db.php',
      select: true,
 lengthMenu: [[-1],["All"]],
@@ -94,12 +90,11 @@ lengthMenu: [[-1],["All"]],
         table.ajax.reload();
       });
     });
-      //  table.ajax.reload();
   $('#dodajStudenta').resetForm();
   });
 
 
-  // Handle row selection event
+  // Obsluga zaznaczenia wiersza
   $('#example').on('select.dt deselect.dt', function(e, api, type, items) {
      if (e.type === 'select') {
         $('tr.selected input[type="checkbox"]', api.table().container()).prop('checked', true);
@@ -107,11 +102,11 @@ lengthMenu: [[-1],["All"]],
         $('tr:not(.selected) input[type="checkbox"]', api.table().container()).prop('checked', false);
      }
 
-     // Update state of "Select all" control
+     // uaktualnienie po wcisnieciu "zaznacz wszystko"
      updateDataTableSelectAllCtrl(table);
   });
 
-  // Handle click on "Select all" control
+  // obsluga klikniecia w checkbox "zaznacz wszystko"
   $('#example thead').on('click', 'input[type="checkbox"]', function(e) {
      if (this.checked) {
         table.rows({ page: 'current' }).select();
@@ -122,18 +117,18 @@ lengthMenu: [[-1],["All"]],
      e.stopPropagation();
   });
 
-  // Handle click on heading containing "Select all" control
+  
   $('thead', table.table().container()).on('click', 'th:first-child', function(e) {
      $('input[type="checkbox"]', this).trigger('click');
   });
 
-  // Handle table draw event
+
   $('#example').on('draw.dt', function() {
-     // Update state of "Select all" control
+ // uaktualnienie po wcisnieciu "zaznacz wszystko"
      updateDataTableSelectAllCtrl(table);
   });
 
-  // Handle form submission event
+  // Obsluga po wcisnieciu submit
   $('#frm-example').on('submit', function(e){
     e.preventDefault();
      var form = this;
@@ -152,19 +147,17 @@ lengthMenu: [[-1],["All"]],
      if(finalNumber.substring(finalNumber.length-1) == ",") { //jesli na ostatnim miejscu jest przercinek
        finalNumber = finalNumber.substring(0, finalNumber.length-1);//usuñ ostatnie miejsce, ostatni char
      }
-     //console.log(finalNumber);
+
      $('#numer').val(finalNumber);
      zamknij_adresy();
   });
 
 
-  // DELETE
+  // Usowanie
   $('#trash').on('click', function(e){
       e.preventDefault();
      var DeletePhoneNumberArray = [];
 
-     // Iterate over all selected checkboxes
-     // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
      $('#example input[type="checkbox"]:checked').each(function() {
        var number = $(this).parent().parent().children('td:nth-child(5)').html();
        number ? DeletePhoneNumberArray.push(number) : 0;
@@ -186,4 +179,3 @@ lengthMenu: [[-1],["All"]],
 
 
 });
-//*/

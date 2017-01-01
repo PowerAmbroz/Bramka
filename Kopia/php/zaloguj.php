@@ -14,16 +14,16 @@
 	else
 	{
 		$login = $_POST['login']; //pobranie loginu wysłanego z indexu
-		$haslo = md5($_POST['haslo']); //pobranie hasła
-
-
+		$haslo = $_POST['haslo']; //pobranie hasła
 
 		$login=htmlentities($login, ENT_QUOTES, "UTF-8");
 		$haslo=htmlentities($haslo, ENT_QUOTES, "UTF-8"); //encje html pozwalają wypisać fragmenty kodu i nie traktują jej jako kod html . ENT_QUOTES - zamieniaj na encje tez cudzysłowia("") i apostrofy ('')
 	//echo "it works";
 
+		//$sql = "SELECT * FROM uzytkownicy WHERE user='$login' AND pass='$haslo'"; zapytanie do bazy sql sprawdzajace czy użytkownik o podanym loginie i haśle istanieje. Dodatkowo całe zapytanie zapisujemy w cudzysłowiach("zapytanie"), a  zmienne php będące łańcuchamiw apostrofach ('zmienna') P.S Funkcja juz nie używana bo podatna na wstrzykiwanie SQL
+
 	if($rezultat = @$polaczenie->query(
-	sprintf("SELECT * FROM uzytkownicy WHERE imie='%s' AND pass='%s'",  // sprintf - jak print w C ,%-oznaczenie miejsca gdzie przebuwa zmienna, s typu string
+	sprintf("SELECT * FROM uzytkownicy WHERE user='%s' AND pass='%s'",  // sprintf - jak print w C ,%-oznaczenie miejsca gdzie przebuwa zmienna, s typu string
 	mysqli_real_escape_string($polaczenie,$login), // wstawi w miejsce pierwszego %s pierwszy argument podany po przecinku
 	mysqli_real_escape_string($polaczenie,$haslo))))  //dalej analogicznie
 	//mysqli_real_escape_string - funkcja do wykrywanie prób wpływania za zapytania operatorami dwóch myślników(-- komentarz w SQL) lub apostrofów i zabezpiecza naszą bazę przed wstrzykiwaniem SQL
@@ -39,17 +39,14 @@
 			$_SESSION['zalogowany']=true; //jeśli komus uda się zalogowac to istnieje w zmiennej zalogowany w sesji
 
 
-			$wiersz = $rezultat->fetch_assoc(); //stworzenie tablicy skojarzeniowej, czyli asocjacyjnej do której włożone zostaną zmienne  o takich samych nazwach jak nazwy kolumn w bazie
+			$wiersz = $rezultat->fetch_assoc(); //stworzenie tablicy skojarzeniowej, czyli asocjacyjnej do której włożone zostaną zmienne  o takich samych nazwach jak nazwy kolumn w bazie 
 			$_SESSION['id'] = $wiersz['id'];
-			$_SESSION['imie'] = $wiersz['imie']; //wyciąganie z tablicy asocjacyjnej kolumny user za pomoca sesji
-			$_SESSION['permision'] = $wiersz['permision'];
+			$_SESSION['user'] = $wiersz['user']; //wyciąganie z tablicy asocjacyjnej kolumny user za pomoca sesji
 
 			unset($_SESSION['blad']); //usuń zmienną błąd z sesji
 
-			$rezultat->free_result(); //wyczyszczenie z bazy serwerarezultatów zapytania czyli te rekordy wyjęte z bazy
-
-				header('Location: bramka.php'); //połaczenie z innym plikiem php
-			
+			$rezultat->free_result(); //wyczyszczenie z bazy serwera rezultatów zapytania czyli te rekordy wyjęte z bazy
+			header('Location: bramka.php'); //połaczenie z innym plikiem php
 
 
 		}
