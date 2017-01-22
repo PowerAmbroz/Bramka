@@ -54,7 +54,7 @@ echo "<br/><br/>";
 
           $sql = 'INSERT INTO uzytkownicy (imie, nazwisko, pass, wydzial, email, telefon, permision) VALUES ("'.$imie.'", "'.$nazwisko.'", "'.$haslo.'", "'.$wydzial.'", "'.$email.'", "'.$tel.'", "'.$permision.'")';
           echo "<br/><br/>";
-          var_dump($sql);
+          // var_dump($sql);
           echo "<br/><br/>";
 
           $result = mysqli_query($connection, $sql) or die("Error in Selecting " . mysqli_error($connection));

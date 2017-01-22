@@ -23,7 +23,7 @@
 	  <meta name="generator" content="Webflow">
 	  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
 	  <link rel="stylesheet" type="text/css" href="../css/webflow.css">
-	  <link rel="stylesheet" type="text/css" href="../css/bartoszs-dynamite-site-9faf3a.webflow.css">
+	  <link rel="stylesheet" type="text/css" href="../css/wyglad_dodatkowy.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
 	  <script>
 	    WebFont.load({
@@ -37,7 +37,7 @@
 	  <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
 </head>
 
-<body onload="odliczanie();">
+<body class="mine" onload="odliczanie();">
 
 	<?php
 if($_SESSION['permision'] === "1"){
@@ -52,42 +52,55 @@ if($_SESSION['permision'] === "1"){
 }
 	 ?>
 
-  <div class="w-section section">
-    <div class="sidebar">
-			<div id="zegarek">12:00:00</div>
-      <div id="profilePicDiv" class="sidebar-personicon"></div>
-      <h2 id="profileName" class="sidebar-header"><?php echo "<p>Witaj ".$_SESSION['imie'].'!</p>'?></h2>
-			<a href="logout.php" class="w-button sidebar-button">Wyloguj</a>
-			<a href="#" class="w-button sidebar-button">Edytuj Profil</a>
 
-    </div>
-    <div class="maincontainer">
-      <div class="mainimg-container"><img src="../img/logo.jpg">
-      </div>
-      <div class="form-container">
-        <div class="w-form">
+<div class="uk-grid">
+	<div class="uk-width-1-3 uk-width-medium-1-4 sider">
+		<div class="sidebar">
+		<div class="zegar" id="zegarek">
+			</div>
+			<div class="ikona">
+				<!-- <img src="img/personIcon.png" /> -->
+			</div>
+			<div class="zalogowana">
+				<h2><?php echo "<p>Witaj ".$_SESSION['imie'].'!</p>'?></h2>
+			</div>
+			<a href="logout.php"><div class="uk-button sidebar-button">Wyloguj</div></a>
+			<div class="uk-button sidebar-button">Edytuj Profil</div>
+	</div>
+</div>
+	<div class="uk-width-2-3 uk-width-medium-3-4 bramka">
+		<div class="logo_main">
+			<img src="../img/logo.jpg" />
+		</div>
+	<div class="form-container">
+		<div class="w-form">
 
-					<form action="sms.php" id="email-form" name="email-form" data-name="Email Form" class="form-flex" method="post">
-            <label for="numer">Numer telefonu</label>
-            <div class="input-adresy-contaienr">
-              <input id="numer" type="text" placeholder="Podaj numery telefonu oddzielone przecinkami" name="numer" data-name="numer" class="w-input input"><img src="../img/kontakty.png" data-ix="open-adresy" class="adresyicon">
-            </div>
+			<form action="sms.php" id="email-form" name="email-form" data-name="Email Form" class="form-flex" method="post">
+				<label for="numer">Numer telefonu</label>
+				<div class="input-adresy-contaienr">
+					<input id="numer" type="text" placeholder="Podaj numery telefonu oddzielone przecinkami" name="numer" data-name="numer" class="w-input input">
+					<img src="../img/kontakty.png" data-ix="open-adresy" class="adresyicon">
+				</div>
 
-            <label for="wiadomosc">Wiadomosc:</label><div id="charNum">130</div>
-            <textarea id="wiadomosc" placeholder="Podaj tresc wiadomosci bez polskich znakow..." name="wiadomosc" data-name="wiadomosc" class="w-input input textarea" onkeyup="countChar(this)" maxlength="160"></textarea>
-            <input type="submit" value="Wyslij wiadomosc" data-wait="Prosze czekac..." wait="Prosze czekac..." class="w-button form-submit">
-          </form>
+				<label for="wiadomosc">Wiadomosc:</label><div id="charNum">130</div>
+				<textarea id="wiadomosc" placeholder="Podaj tresc wiadomosci bez polskich znakow..." name="wiadomosc" data-name="wiadomosc" class="w-input input textarea" onkeyup="countChar(this)" maxlength="160"></textarea>
+				<input type="submit" value="Wyslij wiadomosc" data-wait="Prosze czekac..." wait="Prosze czekac..." class="uk-button form-submit">
+			</form>
 
-          <div class="w-form-done">
-            <p>Dziękuje. Twoja wiadomośc została przesłana.</p>
-          </div>
-          <div class="w-form-fail">
-            <p>Oops! Coś poszło nie tak z wysłaniem wiadomości</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+			<div class="w-form-done">
+				<p>Dziękuje. Twoja wiadomośc została przesłana.</p>
+			</div>
+			<div class="w-form-fail">
+				<p>Oops! Coś poszło nie tak z wysłaniem wiadomości</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+
 	<?php
 
 		include_once('../view/footer.php');

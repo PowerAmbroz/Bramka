@@ -169,13 +169,13 @@ $(document).ready(function() {
   // DELETE
   $('#trash').on('click', function(e){
       e.preventDefault();
-     var DeletePhoneNumberArray = [];
+     var DeletePhoneNumberArrayAdmin = [];
 
      // Iterate over all selected checkboxes
      // $('input[type="checkbox"]:checked').parent().parent().children('td:nth-child(5)').html()
      $('#example input[type="checkbox"]:checked').each(function() {
-       var number = $(this).parent().parent().children('td:nth-child(5)').html();
-       number ? DeletePhoneNumberArray.push(number) : 0;
+       var number = $(this).parent().parent().children('td:nth-child(6)').html();
+       number ? DeletePhoneNumberArrayAdmin.push(number) : 0;
 
      });
 
@@ -183,7 +183,7 @@ $(document).ready(function() {
 
         type: "POST",
         url: "../php/usun.php",
-        data: {"DeletePhoneNumberArray" : JSON.stringify(DeletePhoneNumberArray)},
+        data: {"DeletePhoneNumberArrayAdmin" : JSON.stringify(DeletePhoneNumberArrayAdmin)},
         cache: false,
         success: function(data){
             table.ajax.reload();

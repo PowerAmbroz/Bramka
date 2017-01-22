@@ -1,7 +1,16 @@
+body{
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, p, div{
+  line-height: 1.4;
+}
+
 .uk-container{
   margin: 0 auto;
 }
 
+/*Start Page*/
 .logo img{
   width: 100%;
 }
@@ -48,3 +57,240 @@
 .telefon{
   margin-top: 20px;
 }
+
+/*Bramka site*/
+/*Sidebar*/
+.sider{
+  background-color: #34495e;
+  border-right: 5px solid #e67e22;
+  box-shadow: 0 0 8px 0 #000;
+}
+
+.sidebar{
+
+  color: white;
+  padding: 0 35px;
+  min-height: 100vh;
+
+}
+
+.sidebar h2, .zegar{
+  color: white;
+  font-size: 40px;
+}
+
+.zegar{
+  padding-top: 30px;
+  text-align: center;
+}
+
+.ikona{
+  border: 1px solid #fff;
+  height: 128px;
+  width: 128px;
+  border-radius: 50%;
+  background-image: url('../img/personIcon.png');
+  background-position: 0px 0px;
+  background-size: cover;
+  margin: 0 auto;
+
+}
+
+.zalogowana{
+  border-bottom: 1px solid #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.sidebar-button{
+  margin: 10px 0;
+
+  border-style: solid none solid solid;
+  border-width: 1px 1px 1px 0px;
+  border-color: #2c3e50;
+  background-color: transparent;
+  text-align: center;
+  color: white;
+}
+
+.sidebar-button:hover{
+  background-image: -webkit-linear-gradient(0deg, #34495e, #2c3e50 50%, #34495e);
+  background-image: linear-gradient(90deg, #34495e, #2c3e50 50%, #34495e);
+  color: white;
+}
+
+/*Maim*/
+.bramka{
+  padding: 30px 35px 0 35px;
+  background-color: #ecf0f1;
+}
+
+.bramka .logo_main img{
+  padding-bottom: 25px;
+  margin: 0 auto;
+  display: block;
+}
+
+.form-container{
+  padding: 25px;
+-webkit-box-flex: 1;
+-webkit-flex: 1;
+-ms-flex: 1;
+flex: 1;
+border: 1px solid #dadada;
+}
+
+label{
+  display: block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+input{
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.phone-input{
+  display: block;
+width: 100%;
+height: 38px;
+padding: 8px 12px;
+margin-bottom: 10px;
+font-size: 14px;
+line-height: 1.428571429;
+color: #333333;
+vertical-align: middle;
+background-color: #ffffff;
+border: 1px solid #cccccc;
+}
+
+.w-form {
+  margin: 0 0 15px;
+}
+.w-form-done {
+  display: none;
+  padding: 20px;
+  text-align: center;
+  background-color: #dddddd;
+}
+.w-form-fail {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffdede;
+}
+
+.input{
+  margin-bottom: 20px;
+border-radius: 5px;
+}
+
+.w-input{
+display: block;
+width: 100%;
+/*height: 38px;*/
+padding: 8px 12px;
+margin-bottom: 10px;
+font-size: 14px;
+line-height: 1.428571429;
+color: #333333;
+vertical-align: middle;
+background-color: #ffffff;
+border: 1px solid #cccccc;
+}
+
+.adresyikon{
+  width: 38px;
+height: 38px;
+margin-left: 10px;
+cursor: pointer;
+}
+
+img{
+max-width: 100%;
+vertical-align: middle;
+display: inline-block;
+}
+
+/*Modal*/
+.form_input, .form_select{
+width: 100%;
+}
+
+.dodajStudenta, .dodajWykladowce{
+  width: 35%
+}
+
+.dodaj_z_pliku{
+  width: 35%;
+}
+
+.form-submit {
+  background-color: #3f9ddd;
+  color: white;
+  font-weight: bold;
+}
+
+.form-submit:hover{
+  background-color: #34495e;
+  transition-duration: 0,3s;
+  color: white;
+}
+
+/*Media*/
+@media(max-width:1060px){
+  .zegar, .zalogowana h2{
+    font-size: 30px;
+  }
+}
+
+@media(max-width:965px){
+  .zegar, .zalogowana h2{
+    font-size: 24px;
+  }
+}
+
+@media(max-width:900px){
+  .ikona{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media(max-width:835px){
+  .zegar, .zalogowana h2{
+    font-size: 20px;
+  }
+}
+
+@media(max-width:700px){
+  .sidebar{
+    padding: 0;
+  }
+
+  .ikona{
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media(max-width:525px){
+  .zegar, .zalogowana h2{
+      font-size: 18px;
+  }
+
+  .ikona{
+    width: 92px;
+    height: 92px;
+  }
+}
+
+/*@media(max-width:500px){
+  .sider{
+    width: 135px;
+  }
+  .bramka{
+    max-width: 380px;
+  }
+}*/

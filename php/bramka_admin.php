@@ -1,8 +1,9 @@
 <div id="adresymodal-bg" class="adresymodal-bg">
-	<div class="adresymodal-container">
+	<div class="adresymodal-container uk-container">
 		<div class="w-clearfix">
 			<div data-ix="close-adresy" class="adresymodal-close">Zamknij</div>
 		</div>
+
 		<div class="adresymodal-window">
 
 			<button id="dodawanie_studenta">Dodaj Wykładowce</button>
@@ -12,14 +13,14 @@
 
 			<div id="div2">
 				<!-- byłe dodajStudenta -->
-				<form id="dodajWykladowce" name="dodajWykladowce" action="../connects/insert_to_db.php" method="post">
-					Imię  <input type="text" name="imie"  id="imie"/><br />
-					Nazwisko <input type="text" name="nazwisko" id="nazwisko" ><br />
-					Hasło <input type="text" name="haslo" id="haslo"><br />
-					Wydział <input type="text" name="wydzial" id="wydzial"><br />
-					E-Mail. <input type="tel" name="email" id="e-mail"/><br />
-					Nr. Tel. <input type="tel" name="nr_tel" id="tel" maxlength="9"/><br />
-					Permision <select name="permision_level">
+				<form class="uk-form dodajWykladowce" id="dodajWykladowce" name="dodajWykladowce" action="../connects/insert_to_db.php" method="post">
+					<input class="uk-form-row form_input" type="text" placeholder="Imię" name="imie"  id="imie"/><br />
+					<input class="uk-form-row form_input" type="text" placeholder="Nazwisko" name="nazwisko" id="nazwisko" ><br />
+					<input class="uk-form-row form_input" type="text" placeholder="Hasło" name="haslo" id="haslo"><br />
+					<input class="uk-form-row form_input" type="text" placeholder="Wydział" name="wydzial" id="wydzial"><br />
+					<input class="uk-form-row form_input" type="text" placeholder="E-Mail" name="email" id="e-mail"/><br />
+					<input class="uk-form-row form_input" type="tel" placeholder="Telefon" name="nr_tel" id="tel" maxlength="9"/><br />
+					<select class="form_select" name="permision_level">
 						<option value="0">Level 0</option>
 						<option value="1">Level 1</option>
 						<option value="2">Level 2</option>
@@ -32,11 +33,11 @@
 								echo $_SESSION['zle_dane'];
 						}
 					?>
-					<input type="submit" name="Dodaj" value="Dodaj" style="margin-left:9px;"/>
+					<input class="uk-button dodawanie" type="submit" name="Dodaj" value="Dodaj" />
 				</form>
 			</div>
 
-			<div id="div3">
+			<div class="dodaj_z_pliku" id="div3">
 				Dodaj Wykładowce z Pliku<br />
 				<p>Format: Imię;Nazwisko;Grupa;Telefon</p>
 				<span style="color:red"><h5><p>Wgranie danych wymaga odświezenia strony</p></h5></span>
@@ -44,7 +45,7 @@
 
 				<form id="dodajStudentow" action="../connects/upload_file_db.php" enctype="multipart/form-data" method='post'>
 					<input id="file" type="file" name="file" value="Prześlij Plik" /><br />
-					<input type="submit" name="send" value="Prześlij" style="margin-left:150px;" />
+					<input class="uk-button dodawanie" type="submit" name="send" value="Prześlij" />
 					<?php
 						if (isset($_SESSION['zle_dane2'])) //sprawdza czy zmienna błąd jest ustawiona w sesji
 						{
@@ -102,4 +103,5 @@
 
 		</div>
 	</div>
+
 </div>

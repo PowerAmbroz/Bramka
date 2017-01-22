@@ -8,6 +8,9 @@
     <script type="text/javascript" src="../scripts/liczenie_znaki.js"></script>
   	<script type="text/javascript" src="../scripts/otwieranie_okna.js"></script>
     <script type="text/javascript" src="../scripts/zegarek.js"></script>
+    <script type="text/javascript" src="../scripts/edycja.js"></script>
+    <script type="text/javascript" src="../scripts/uikit.min.js"></script>
+
     <script>
       var wykladowca_id = '<?php echo $_SESSION['id']?>';
     </script>
